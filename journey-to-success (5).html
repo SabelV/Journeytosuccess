@@ -1,0 +1,2681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Journey to Success</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #13223D;
+    --navy-deep: #0C182C;
+    --blue: #2A5C8A;
+    --blue-dark: #1F4568;
+    --ink: #1C2430;
+    --ink-soft: #59626F;
+    --bg: #F5F7FA;
+    --surface: #FFFFFF;
+    --line: #DEE3EA;
+    --line-strong: #C6CEDA;
+    --teal: #0E7C72;
+    --teal-bg: #E4F2F0;
+    --amber: #92600B;
+    --amber-bg: #FBF0DD;
+    --plum: #5B3E8C;
+    --plum-bg: #EFE9F7;
+    --rose: #A13A3A;
+    --rose-bg: #F7E6E6;
+    --cyan: #0B6E8F;
+    --cyan-bg: #DEEEF4;
+    --champagne-light: #F6EAD2;
+    --champagne: #E8D2A0;
+    --champagne-deep: #C9A96E;
+    --champagne-text: #6B5427;
+    --radius: 8px;
+    --shadow-sm: 0 1px 2px rgba(19,34,61,0.06);
+    --shadow-md: 0 4px 16px rgba(19,34,61,0.08);
+    --container: 1080px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    font-size:15px;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4',Georgia,serif;
+    font-weight:600;
+    letter-spacing:-0.012em;
+    margin:0;
+    color:var(--navy);
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--blue-dark);
+    font-weight:600;
+  }
+  button{font-family:inherit;cursor:pointer;}
+  a{color:inherit;}
+  #app{min-height:100vh;display:flex;flex-direction:column;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    background:var(--navy-deep); color:#DCE4EF; font-size:12.5px;
+    padding:7px 0;
+  }
+  .topbar-inner{max-width:var(--container);margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;}
+  .topbar span{color:#8FA3C0;}
+
+  /* ---------- Header / Nav ---------- */
+  .app-header{
+    background:var(--surface);border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:10;
+  }
+  .header-inner{
+    max-width:var(--container);margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:36px;height:36px;border-radius:6px;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    color:#fff;font-family:'Source Serif 4',serif;font-weight:700;font-size:15px;
+  }
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-name{font-family:'Source Serif 4',serif;font-weight:600;font-size:16.5px;color:var(--navy);}
+  .brand-sub{font-size:11px;color:var(--ink-soft);letter-spacing:0.03em;}
+
+  .steps-nav{display:flex;align-items:center;gap:0;}
+  .header-right-group{display:flex;align-items:center;gap:18px;}
+  .lang-select{
+    border:1.5px solid var(--line-strong);border-radius:6px;padding:7px 10px;
+    font-size:12.5px;font-weight:600;color:var(--navy);background:#fff;cursor:pointer;
+  }
+  .lang-select:focus-visible{outline:3px solid var(--blue);outline-offset:2px;}
+  .steps-nav button{
+    background:none;border:none;display:flex;align-items:center;gap:8px;padding:6px 14px;
+    font-size:13px;color:var(--ink-soft);font-weight:500;border-radius:5px;
+  }
+  .steps-nav button:disabled{cursor:default;}
+  .steps-nav button.reachable:hover{background:var(--bg);}
+  .step-num{
+    width:19px;height:19px;border-radius:50%;background:var(--line);color:var(--ink-soft);
+    display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;flex-shrink:0;
+  }
+  .step-num.done{background:var(--teal);color:#fff;}
+  .step-num.active{background:var(--navy);color:#fff;}
+  .steps-nav .step-label.active{color:var(--navy);font-weight:700;}
+  .steps-nav .divider{width:22px;height:1px;background:var(--line-strong);}
+
+  main{flex:1;display:flex;flex-direction:column;}
+
+  /* ---------- Buttons ---------- */
+  .btn-primary{
+    background:var(--navy);color:#fff;border:none;border-radius:6px;
+    padding:13px 26px;font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;
+    transition:background .15s;text-decoration:none;cursor:pointer;
+  }
+  .btn-primary:hover{background:var(--blue-dark);}
+  .btn-primary:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible{
+    outline:3px solid var(--blue); outline-offset:2px;
+  }
+  .btn-secondary{
+    background:#fff;color:var(--navy);border:1.5px solid var(--line-strong);border-radius:6px;
+    padding:11px 20px;font-size:14px;font-weight:600;
+  }
+  .btn-secondary:hover{border-color:var(--navy);background:var(--bg);}
+  .btn-text{background:none;border:none;color:var(--blue-dark);font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;}
+  .btn-text:hover{text-decoration:underline;}
+
+  /* ---------- Welcome / hero ---------- */
+  .hero{
+    background:linear-gradient(180deg,var(--champagne-light) 0%, var(--champagne) 100%);
+    color:var(--navy);padding:22px 32px 18px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(19,34,61,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(19,34,61,0.05) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:linear-gradient(180deg, rgba(0,0,0,0.5), transparent 80%);
+  }
+  .hero-inner{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+  .hero h1{
+    font-size:clamp(38px,7vw,64px);line-height:1.08;color:var(--navy);
+    max-width:600px;margin:0 auto;letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;font-weight:600;color:var(--champagne-deep);
+    -webkit-text-stroke:0.5px var(--navy);
+  }
+  .hero-subtitle{
+    font-size:clamp(14px,1.8vw,17px);color:var(--champagne-text);
+    margin:10px auto 0;max-width:440px;line-height:1.5;font-weight:500;
+  }
+  .hero .btn-primary{background:var(--navy);color:#fff;margin-top:16px;padding:9px 20px;font-size:13.5px;}
+  .hero .btn-primary:hover{background:var(--blue-dark);}
+
+  .feature-strip{
+    max-width:var(--container);margin:0 auto;padding:0 32px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    margin-top:-1px;
+  }
+  @media (max-width:720px){.feature-strip{grid-template-columns:1fr;}}
+  .feature-item{background:var(--surface);padding:26px 28px;display:flex;gap:14px;align-items:flex-start;}
+  .feature-item .fi-icon{
+    width:34px;height:34px;border-radius:6px;background:var(--teal-bg);color:var(--teal);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .feature-item .fi-icon svg{width:17px;height:17px;}
+  .feature-item h4{font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;color:var(--navy);margin:0 0 4px;}
+  .feature-item p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.45;}
+
+  /* ---------- Quick picks ---------- */
+  .quickpick-section{margin:0 0 32px;text-align:left;}
+  .quickpick-heading{font-size:13.5px;font-weight:700;color:var(--navy);margin:0 0 14px;}
+  .quickpick-row{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:10px;}
+  .quickpick-btn{
+    display:flex;align-items:center;gap:8px;background:var(--qp-bg);color:var(--qp-color);
+    border:none;border-radius:999px;padding:10px 18px 10px 14px;font-size:13.5px;font-weight:600;
+    transition:transform .12s, box-shadow .12s;
+  }
+  .quickpick-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-md);}
+  .quickpick-btn .qp-icon{width:18px;height:18px;flex-shrink:0;display:flex;}
+  .quickpick-btn .qp-icon svg{width:100%;height:100%;}
+
+  /* ---------- Campus illustration (lives inside the dark hero) ---------- */
+  .campus-illustration{width:100%;max-width:400px;margin:8px auto 0;}
+  .campus-illustration svg{width:100%;height:auto;display:block;}
+  .campus-caption{text-align:center;color:var(--champagne-text);font-size:11.5px;margin-top:4px;}
+
+  /* ---------- Generic page shell ---------- */
+  .page{max-width:680px;margin:0 auto;padding:56px 32px 90px;width:100%;}
+  .page-wide{max-width:var(--container);}
+  .page-head{margin-bottom:34px;border-bottom:1px solid var(--line);padding-bottom:26px;}
+  .page-head .eyebrow{display:block;margin-bottom:9px;}
+  .page-head h2{font-size:27px;}
+  .page-head p{color:var(--ink-soft);margin-top:10px;font-size:14.5px;line-height:1.55;max-width:520px;}
+  .profile-summary{
+    display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:12px;
+    font-size:12.5px;font-weight:600;color:var(--navy);
+  }
+  .profile-summary span[aria-hidden]{color:var(--line-strong);font-weight:400;}
+  .profile-summary .btn-text{font-size:12.5px;margin-left:4px;}
+
+  /* ---------- Profile form ---------- */
+  .form-card{background:#EAF7EC;border:1px solid #CDEBD1;border-radius:var(--radius);padding:36px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;}
+  .form-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,var(--teal),var(--blue),var(--amber),var(--plum));
+  }
+  .form-progress{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
+  .form-progress-dots{display:flex;gap:6px;}
+  .progress-dot{width:9px;height:9px;border-radius:50%;background:var(--line-strong);transition:background .25s, transform .25s;}
+  .progress-dot.filled{background:var(--teal);transform:scale(1.15);}
+  .form-progress-label{font-size:12px;color:var(--ink-soft);font-weight:600;}
+  .field{margin-bottom:22px;}
+  .field label{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:7px;}
+  .field label svg{width:15px;height:15px;color:var(--ink-soft);flex-shrink:0;}
+  .field .hint{font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-left:2px;}
+  .field input, .field select{
+    width:100%;padding:12px 14px;border:1.5px solid var(--line-strong);border-radius:6px;
+    font-size:14.5px;font-family:'Inter',sans-serif;background:#fff;color:var(--ink);
+    transition:border-color .15s, box-shadow .15s;
+  }
+  .field input:focus, .field select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px rgba(42,92,138,0.12);}
+  .field input::placeholder{color:#9AA5B3;}
+  .field input.field-error, .field select.field-error{border-color:var(--rose);background:#FDF4F4;}
+  .field-error-msg{display:none;color:var(--rose);font-size:12.5px;font-weight:600;margin-top:6px;}
+  .field-error-msg.show{display:block;}
+  .form-actions{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:26px;border-top:1px solid var(--line);}
+
+  .school-preview{
+    display:none;align-items:center;gap:12px;margin-top:12px;padding:12px 14px;
+    background:var(--bg);border-radius:8px;opacity:0;transform:translateY(-4px);
+    transition:opacity .25s, transform .25s;
+  }
+  .school-preview.show{display:flex;opacity:1;transform:translateY(0);}
+  .school-preview-icon{width:34px;height:34px;flex-shrink:0;}
+  .school-preview-name{font-size:13.5px;font-weight:700;color:var(--navy);}
+  .school-preview-status{font-size:11.5px;color:var(--ink-soft);font-weight:600;display:flex;align-items:center;gap:4px;margin-top:2px;}
+  .school-preview-status.verified{color:var(--teal);}
+  .school-preview-status svg{width:12px;height:12px;flex-shrink:0;}
+
+  /* ---------- Needs / category cards ---------- */
+  .category-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:560px){.category-grid{grid-template-columns:1fr;}}
+  .cat-card{
+    text-align:left;background:var(--cat-color-bg,var(--surface));border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;display:flex;flex-direction:column;gap:10px;transition:.15s;
+    border-top:3px solid var(--cat-color,var(--blue));
+  }
+  .cat-card:hover{border-color:var(--line-strong);border-top-color:var(--cat-color,var(--blue));box-shadow:var(--shadow-md);}
+  .cat-icon{width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;}
+  .cat-icon svg{width:18px;height:18px;}
+  .cat-card h3{font-size:16.5px;}
+  .cat-card p{font-size:13px;color:var(--ink-soft);margin:0;line-height:1.5;}
+  .cat-count{font-size:11.5px;color:var(--ink-soft);font-weight:600;letter-spacing:0.02em;}
+  .coverage-tag{
+    display:inline-block;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:4px;
+    width:fit-content;
+  }
+  .coverage-tag.verified{color:var(--teal);background:var(--teal-bg);}
+  .coverage-tag.general{color:var(--ink-soft);background:var(--bg);}
+  .coverage-tag.citywide{color:var(--plum);background:var(--plum-bg);}
+
+  /* ---------- Results page ---------- */
+  .toolbar{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
+  .search-box{
+    flex:1;min-width:200px;display:flex;align-items:center;gap:9px;
+    background:#fff;border:1.5px solid var(--line-strong);border-radius:6px;padding:10px 14px;
+  }
+  .search-box svg{width:16px;height:16px;color:var(--ink-soft);flex-shrink:0;}
+  .search-box input{border:none;outline:none;font-size:14px;width:100%;font-family:'Inter',sans-serif;color:var(--ink);background:transparent;}
+  .filter-select{
+    border:1.5px solid var(--line-strong);border-radius:6px;padding:10px 14px;font-size:13.5px;
+    background:#fff;color:var(--navy);font-weight:600;font-family:'Inter',sans-serif;
+  }
+  .result-count{font-size:12.5px;color:var(--ink-soft);margin-bottom:14px;font-weight:500;}
+  .result-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .result-card{
+    background:#fff;border:none;
+    padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+    text-align:left;width:100%;
+  }
+  .result-card:hover{background:var(--bg);}
+  .result-main h3{font-size:16px;margin-bottom:5px;}
+  .result-main p{font-size:13px;color:var(--ink-soft);margin:0;line-height:1.4;}
+  .result-tag{
+    font-size:10.5px;letter-spacing:0.04em;text-transform:uppercase;font-weight:700;
+    color:var(--tag-color);background:var(--tag-bg);padding:3px 9px;border-radius:4px;display:inline-block;margin-bottom:8px;
+  }
+  .result-arrow{flex-shrink:0;color:var(--ink-soft);width:18px;height:18px;}
+  .school-badge{
+    display:inline-block;margin-left:8px;font-size:10.5px;font-weight:600;color:var(--ink-soft);
+    background:var(--bg);border:1px solid var(--line);padding:2px 8px;border-radius:4px;vertical-align:middle;
+  }
+  .school-badge.verified{color:var(--teal);background:var(--teal-bg);border-color:transparent;}
+  .school-badge.citywide{color:var(--plum);background:var(--plum-bg);border-color:transparent;font-style:italic;}
+  .notice-banner{
+    background:var(--amber-bg);border:1px solid #EAD6A8;color:#5C4109;border-radius:var(--radius);
+    padding:14px 18px;font-size:13px;line-height:1.55;margin-bottom:18px;
+  }
+  .notice-banner em{font-style:normal;font-weight:700;}
+  .crisis-banner{
+    background:var(--rose-bg);border:1.5px solid #E3B3AC;color:#6B2222;border-radius:var(--radius);
+    padding:16px 20px;font-size:14px;line-height:1.6;margin-bottom:20px;display:flex;align-items:center;gap:12px;
+  }
+  .crisis-banner svg{width:22px;height:22px;flex-shrink:0;color:var(--rose);}
+  .crisis-banner a{color:var(--rose);font-weight:700;text-decoration:underline;}
+  .footer-crisis{
+    background:var(--rose-bg);color:#6B2222;text-align:center;font-size:12.5px;padding:10px 20px;
+  }
+  .footer-crisis a{color:var(--rose);font-weight:700;text-decoration:underline;}
+  .empty-state{
+    text-align:center;padding:50px 20px;color:var(--ink-soft);border:1.5px dashed var(--line-strong);border-radius:var(--radius);background:var(--surface);
+  }
+  .empty-state h3{font-size:16.5px;margin-bottom:8px;}
+  .empty-state p{font-size:13.5px;margin:0;}
+
+  /* ---------- Detail page ---------- */
+  .detail-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:38px;box-shadow:var(--shadow-sm);}
+  .detail-tag{margin-bottom:14px;}
+  .detail-card h2{font-size:25px;margin-bottom:6px;}
+  .detail-offers{font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin:14px 0 28px;padding-bottom:26px;border-bottom:1px solid var(--line);}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;}
+  @media (max-width:560px){.detail-grid{grid-template-columns:1fr;}}
+  .detail-item .eyebrow{display:block;margin-bottom:6px;color:var(--ink-soft);font-weight:700;}
+  .detail-item p, .detail-item a{font-size:14px;color:var(--ink);line-height:1.55;margin:0;}
+  .detail-item a{color:var(--blue-dark);font-weight:600;text-decoration:none;}
+  .detail-item a:hover{text-decoration:underline;}
+  .detail-lang-note{
+    background:var(--bg);border-radius:8px;padding:12px 14px;font-size:12.5px;
+    color:var(--ink-soft);line-height:1.5;margin-top:24px;font-style:italic;
+  }
+  .detail-footer{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;padding-top:26px;border-top:1px solid var(--line);}
+
+  .back-row{margin-bottom:22px;}
+
+  /* ---------- Footer ---------- */
+  footer.app-footer{background:var(--navy-deep);color:#B7C4DA;margin-top:auto;}
+  .footer-inner{max-width:var(--container);margin:0 auto;padding:36px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .footer-inner .brand-name{color:#fff;font-size:14.5px;}
+  .footer-inner .brand-sub{color:#7E8FA9;}
+  footer.app-footer .fine-print{font-size:12px;color:#7E8FA9;}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+/* ============ Sample Resource Data ============
+   Each resource has a `school` field:
+   - "General"  → generic placeholder example, shown when we don't yet have
+                  real data for the student's specific school
+   - "All"      → citywide/borough-wide, shown regardless of school
+   - a real school name → verified, school-specific contact info
+*/
+const RESOURCES = [
+  {
+    id:"tut-1", category:"Tutoring", school:"General",
+    name:"Peer Tutoring Center",
+    offers:"Free one-on-one and small-group tutoring in most intro and mid-level courses, led by trained student tutors. Both drop-in and scheduled appointments are available.",
+    eligibility:"Open to all currently enrolled undergraduate students.",
+    access:"Book a session online through the tutoring portal, or walk in during posted drop-in hours.",
+    contact:"tutoring@yourcollege.edu · (555) 201-3040",
+    location:"Library Annex, 2nd Floor, Room 210",
+    website:"https://www.yourcollege.edu/tutoring"
+  },
+  {
+    id:"tut-2", category:"Tutoring", school:"General",
+    name:"Writing Center",
+    offers:"Feedback on essays, research papers, and personal statements at any stage of the writing process, from brainstorming to final polish.",
+    eligibility:"Open to all students, undergraduate and graduate.",
+    access:"Schedule a 30- or 45-minute session online, or attend drop-in hours on weekday afternoons.",
+    contact:"writingcenter@yourcollege.edu · (555) 201-3055",
+    location:"Humanities Building, Room 118",
+    website:"https://www.yourcollege.edu/writing-center"
+  },
+  {
+    id:"tut-3", category:"Tutoring", school:"General",
+    name:"STEM Learning Lab",
+    offers:"Drop-in tutoring and structured study groups for math, chemistry, physics, and intro programming courses.",
+    eligibility:"Open to all students enrolled in a qualifying STEM course.",
+    access:"No appointment needed — just show up during open lab hours, posted each semester on the lab's page.",
+    contact:"stemlab@yourcollege.edu · (555) 201-3070",
+    location:"Science Center, Ground Floor",
+    website:"https://www.yourcollege.edu/stem-lab"
+  },
+  {
+    id:"fin-1", category:"Financial Aid", school:"General",
+    name:"Financial Aid Office",
+    offers:"One-on-one guidance on FAFSA completion, grants, work-study, and student loans, plus help understanding your aid package.",
+    eligibility:"Open to all admitted and currently enrolled students.",
+    access:"Schedule an appointment online or visit during walk-in hours, Monday–Friday.",
+    contact:"finaid@yourcollege.edu · (555) 201-3100",
+    location:"Administration Building, Suite 130",
+    website:"https://www.yourcollege.edu/financial-aid"
+  },
+  {
+    id:"fin-2", category:"Financial Aid", school:"General",
+    name:"Emergency Student Fund",
+    offers:"Short-term emergency grants (not loans) for unexpected costs like housing, food, medical bills, or textbooks.",
+    eligibility:"Currently enrolled students facing a documented, unexpected financial hardship.",
+    access:"Submit a short application online; a decision is typically made within 3–5 business days.",
+    contact:"emergencyfund@yourcollege.edu · (555) 201-3115",
+    location:"Dean of Students Office, Student Union Room 220",
+    website:"https://www.yourcollege.edu/emergency-fund"
+  },
+  {
+    id:"fin-3", category:"Financial Aid", school:"General",
+    name:"Scholarship Resource Center",
+    offers:"Help finding and applying for institutional and outside scholarships, including application and essay review.",
+    eligibility:"Open to all currently enrolled students.",
+    access:"Browse the scholarship database online or book a advising appointment for personalized matches.",
+    contact:"scholarships@yourcollege.edu · (555) 201-3120",
+    location:"Administration Building, Suite 140",
+    website:"https://www.yourcollege.edu/scholarships"
+  },
+  {
+    id:"adv-1", category:"Academic Advising", school:"General",
+    name:"Academic Advising Center",
+    offers:"Help with course selection, degree audits, graduation requirements, and academic planning.",
+    eligibility:"Open to all undergraduate students.",
+    access:"Book an appointment through the student portal; drop-in hours are also available during registration periods.",
+    contact:"advising@yourcollege.edu · (555) 201-3200",
+    location:"Academic Commons, 1st Floor",
+    website:"https://www.yourcollege.edu/advising"
+  },
+  {
+    id:"adv-2", category:"Academic Advising", school:"General",
+    name:"Major Exploration Program",
+    offers:"Guided support for undeclared students, including interest assessments and conversations with faculty across departments.",
+    eligibility:"Open to undeclared or major-uncertain undergraduate students.",
+    access:"Sign up online for an initial exploration session with a dedicated advisor.",
+    contact:"exploreamajor@yourcollege.edu · (555) 201-3210",
+    location:"Academic Commons, Room 105",
+    website:"https://www.yourcollege.edu/major-exploration"
+  },
+  {
+    id:"adv-3", category:"Academic Advising", school:"General",
+    name:"Transfer Student Advising",
+    offers:"Support with transfer credit evaluation, degree mapping, and adjusting to academic life after transferring.",
+    eligibility:"Open to students who transferred from another college or university.",
+    access:"Request an appointment through the transfer advising page.",
+    contact:"transferadvising@yourcollege.edu · (555) 201-3220",
+    location:"Academic Commons, Room 108",
+    website:"https://www.yourcollege.edu/transfer-advising"
+  },
+  {
+    id:"mh-1", category:"Mental Health Support", school:"General",
+    name:"Counseling & Psychological Services (CAPS)",
+    offers:"Free, confidential individual and group counseling, crisis support, and referrals to off-campus care when needed.",
+    eligibility:"Open to all currently enrolled students.",
+    access:"Call or schedule online to set up an initial consultation; same-day crisis appointments are available.",
+    contact:"caps@yourcollege.edu · (555) 201-3300",
+    location:"Wellness Center, 3rd Floor",
+    website:"https://www.yourcollege.edu/caps"
+  },
+  {
+    id:"mh-2", category:"Mental Health Support", school:"General",
+    name:"Peer Wellness Line",
+    offers:"After-hours phone and chat support staffed by trained student peers for stress, loneliness, or just needing someone to talk to.",
+    eligibility:"Open to all currently enrolled students.",
+    access:"Call or text the line directly — no appointment or referral needed, available evenings and weekends.",
+    contact:"(555) 201-3310 (call or text)",
+    location:"Available by phone/text — no visit required",
+    website:"https://www.yourcollege.edu/peer-wellness"
+  },
+  {
+    id:"mh-3", category:"Mental Health Support", school:"General",
+    name:"Mindfulness & Stress Reduction Program",
+    offers:"Free weekly meditation sessions, stress-management workshops, and a quiet drop-in relaxation room.",
+    eligibility:"Open to all currently enrolled students.",
+    access:"Drop in to any weekly session — no sign-up required — or reserve the relaxation room online.",
+    contact:"mindfulness@yourcollege.edu · (555) 201-3320",
+    location:"Wellness Center, Room 205",
+    website:"https://www.yourcollege.edu/mindfulness"
+  },
+  {
+    id:"car-1", category:"Career Services", school:"General",
+    name:"Career Development Center",
+    offers:"Resume and cover letter reviews, mock interviews, and one-on-one career counseling for any major.",
+    eligibility:"Open to all current students and recent graduates.",
+    access:"Book an appointment online or attend weekly resume-review drop-in hours.",
+    contact:"careers@yourcollege.edu · (555) 201-3400",
+    location:"Career Center, Student Union Room 310",
+    website:"https://www.yourcollege.edu/careers"
+  },
+  {
+    id:"car-2", category:"Career Services", school:"General",
+    name:"Internship & Co-op Office",
+    offers:"Help finding, applying to, and earning academic credit for internships and co-op placements.",
+    eligibility:"Open to sophomores, juniors, and seniors in good academic standing.",
+    access:"Create a profile on the internship portal and meet with a coordinator to review openings.",
+    contact:"internships@yourcollege.edu · (555) 201-3410",
+    location:"Career Center, Student Union Room 312",
+    website:"https://www.yourcollege.edu/internships"
+  },
+  {
+    id:"car-3", category:"Career Services", school:"General",
+    name:"Career Closet",
+    offers:"Free professional attire for interviews, career fairs, and internships — take up to three items per visit, no cost.",
+    eligibility:"Open to all currently enrolled students.",
+    access:"Walk in during open hours; no appointment needed.",
+    contact:"careercloset@yourcollege.edu · (555) 201-3420",
+    location:"Career Center, Student Union Room 308",
+    website:"https://www.yourcollege.edu/career-closet"
+  },
+  {
+    id:"bar-tut-1", category:"Tutoring", school:"Baruch College",
+    name:"Student Academic Consulting Center (SACC)",
+    offers:"Free peer tutoring, study-skills coaching, and Supplemental Instruction sessions across a wide range of courses.",
+    eligibility:"Open to all Baruch College students.",
+    access:"Book an appointment or check drop-in tutoring hours through the SACC website.",
+    contact:"sacc@baruch.cuny.edu · (646) 312-4830",
+    location:"Room 2-116, 55 Lexington Avenue",
+    website:"https://sacc.baruch.cuny.edu/"
+  },
+  {
+    id:"bkc-tut-1", category:"Tutoring", school:"Brooklyn College",
+    name:"Brooklyn College Learning Center",
+    offers:"Free peer tutoring and Supplemental Instruction across the curriculum, in a supportive drop-in environment.",
+    eligibility:"Open to all Brooklyn College students.",
+    access:"Check the tutoring schedule online and drop in during open hours, in person or by Zoom.",
+    contact:"lc@brooklyn.cuny.edu · (718) 951-5821",
+    location:"1300 Boylan Hall",
+    website:"https://www.brooklyn.edu/lc/"
+  },
+  {
+    id:"ccny-tut-1", category:"Tutoring", school:"City College of New York",
+    name:"Samuel Rudin Writing Center",
+    offers:"Free one-on-one assistance for undergraduate and graduate students working on course writing assignments, at any stage of the writing process.",
+    eligibility:"Open to all City College students.",
+    access:"Book an appointment online, or join the virtual Zoom front desk during open hours.",
+    contact:"writingcenter@ccny.cuny.edu · (212) 650-8104",
+    location:"North Academic Center (NAC), 3rd Floor Plaza",
+    website:"https://www.ccny.cuny.edu/academics/tutoring"
+  },
+  {
+    id:"ccny-tut-2", category:"Tutoring", school:"City College of New York",
+    name:"Biology and Chemistry Tutoring (CCAPP)",
+    offers:"Free one-on-one and group tutoring in biology and chemistry for students registered in any Division of Science course.",
+    eligibility:"Open to all City College students enrolled in a Division of Science course.",
+    access:"Appointment required before receiving tutoring — contact the center to schedule.",
+    contact:"nkem@sci.ccny.cuny.edu · (212) 650-6059",
+    location:"Marshak Science Building, Room 403 (CCAPP Study Hall)",
+    website:"https://www.ccny.cuny.edu/academics/tutoring"
+  },
+  {
+    id:"ccny-tut-3", category:"Tutoring", school:"City College of New York",
+    name:"Math and Physics Tutoring",
+    offers:"Free tutoring for all math courses through Calculus 3, Differential Equations, and Linear Algebra, plus General Physics 1 and 2.",
+    eligibility:"Open to all City College students.",
+    access:"Contact the center to schedule tutoring.",
+    contact:"atrafford@ccny.cuny.edu · (212) 650-6376",
+    location:"Marshak Science Building, Room 106",
+    website:"https://www.ccny.cuny.edu/academics/tutoring"
+  },
+  {
+    id:"ccny-tut-4", category:"Tutoring", school:"City College of New York",
+    name:"Foreign Language & Literatures Media Center",
+    offers:"Tutoring for students enrolled in Spanish, French, and Italian classes, with limited tutoring in Chinese and Japanese.",
+    eligibility:"Open to all City College students enrolled in a Foreign Language course.",
+    access:"Tutoring begins the second or third week of each semester; check the office door for the current schedule.",
+    contact:"rmartinez@ccny.cuny.edu · (212) 650-6731",
+    location:"North Academic Center (NAC), Room 5/223",
+    website:"https://www.ccny.cuny.edu/academics/tutoring"
+  },
+  {
+    id:"ccny-tut-5", category:"Tutoring", school:"City College of New York",
+    name:"The Artino Mathematics Tutoring Center",
+    offers:"Free individual and group tutoring sessions for students in Math 150 through Math 391 — homework help or exam prep.",
+    eligibility:"Open to all City College students enrolled in a supported math course.",
+    access:"Visit or contact the center to schedule a tutoring session.",
+    contact:"artinomathcenter@ccny.cuny.edu · (212) 650-5154",
+    location:"North Academic Center (NAC), Room 1/511",
+    website:"https://www.ccny.cuny.edu/academics/tutoring"
+  },
+  {
+    id:"ctech-tut-1", category:"Tutoring", school:"New York City College of Technology",
+    name:"Atrium Learning Center",
+    offers:"Free tutoring and academic support in math and biological science courses, plus access to tutor.com for 250+ other subjects.",
+    eligibility:"Open to all City Tech students.",
+    access:"Visit or contact the center to schedule a tutoring session.",
+    contact:"AtriumLearningCenter@citytech.cuny.edu · (718) 260-5874",
+    location:"Library Building, Room LG-18, 300 Jay Street",
+    website:"https://www.citytech.cuny.edu/alc/"
+  },
+  {
+    id:"ctech-tut-2", category:"Tutoring", school:"New York City College of Technology",
+    name:"City Tech Writing Center (CTWC)",
+    offers:"Free one-to-one tutoring, workshops, and resources for student writers in any discipline, at any stage of the writing process — in person or online.",
+    eligibility:"Open to all City Tech students.",
+    access:"Book online through the CTWC appointment site; in-person appointments meet in G-608, online appointments meet by video call.",
+    contact:"WritingCenter@citytech.cuny.edu",
+    location:"Room G-608, General Building (6th floor)",
+    website:"https://openlab.citytech.cuny.edu/ctwritingcenter/"
+  },
+  {
+    id:"csi-tut-1", category:"Tutoring", school:"College of Staten Island",
+    name:"Office of Academic Support (OAS)",
+    offers:"Free, CRLA-certified peer tutoring across a wide range of subjects — including humanities, social sciences, business, and STEM — plus supplemental instruction and academic workshops.",
+    eligibility:"Open to all College of Staten Island students.",
+    access:"Walk in or book an appointment for tutoring in-person or online; schedules are posted for both options.",
+    contact:"oas@csi.cuny.edu · (718) 982-4221",
+    location:"Library, Room 1L-117",
+    website:"https://www.csi.cuny.edu/students/academic-assistance/office-academic-support"
+  },
+  {
+    id:"jjc-tut-1", category:"Tutoring", school:"John Jay College of Criminal Justice",
+    name:"Alan Siegel Writing Center",
+    offers:"Free one-on-one and small-group tutoring in writing at every stage of the process, plus ESL support for multilingual and international students.",
+    eligibility:"Open to all matriculated John Jay College undergraduate and graduate students.",
+    access:"Drop in during open hours — no faculty referral needed — or book a session through Navigate.",
+    contact:"(212) 237-8569",
+    location:"Room 01.68, New Building",
+    website:"https://www.jjay.cuny.edu/academics/academic-resources-services/tutoring-academic-support/alan-siegel-writing-center"
+  },
+  {
+    id:"jjc-tut-2", category:"Tutoring", school:"John Jay College of Criminal Justice",
+    name:"Duane M. and Lily E. Christ Math & Science Resource Center (MSRC)",
+    offers:"Free one-on-one and small-group tutoring for about 30 math, biology, chemistry, science, and statistics courses, plus a computer lab and a lending library of textbooks and calculators.",
+    eligibility:"Open to all currently enrolled John Jay students with a valid John Jay ID.",
+    access:"Schedule an appointment through EAB Navigate, by phone, or by email; walk-ins are welcome when space allows, but appointments are strongly recommended.",
+    contact:"msrc@jjay.cuny.edu · (646) 557-4635",
+    location:"Room 01.94, New Building",
+    website:"https://www.jjay.cuny.edu/academics/academic-resources-services/tutoring-academic-support/math-science-resource-center"
+  },
+  {
+    id:"leh-tut-1", category:"Tutoring", school:"Lehman College",
+    name:"Lehman Tutoring Center",
+    offers:"Free peer tutoring and academic coaching for writing, social sciences, and humanities coursework, plus study-skills support.",
+    eligibility:"Open to all Lehman College undergraduate and graduate students.",
+    access:"Schedule a weekly or one-time appointment, or drop in during posted tutoring hours (first-come, first-served).",
+    contact:"(718) 960-8175",
+    location:"Old Gym Building, Room 205",
+    website:"https://www.lehman.edu/academics/tutoring-academic-support.php"
+  },
+  {
+    id:"leh-tut-2", category:"Tutoring", school:"Lehman College",
+    name:"Science Learning Center (SLC)",
+    offers:"Free drop-in group tutoring for natural science courses, including biology, chemistry, and physics.",
+    eligibility:"Open to all Lehman College students enrolled in a supported science course.",
+    access:"Drop in during posted hours (in-person or via the virtual center) — tutoring is first-come, first-served and only runs while classes are in session.",
+    contact:"issp.slc@lehman.cuny.edu · (718) 960-7707",
+    location:"Gillet Hall, Room 133",
+    website:"https://www.lehman.edu/academics/issp/science-tutoring/tutoring-service/"
+  },
+  {
+    id:"leh-tut-3", category:"Tutoring", school:"Lehman College",
+    name:"Mathematics and Statistics Student Success Center (MS3)",
+    offers:"Free tutoring for a range of math and statistics courses, plus computer access for online coursework and exam review sessions.",
+    eligibility:"Open to all Lehman College students enrolled in a supported MAT course.",
+    access:"Book an appointment online, or check current hours for walk-in availability — the center is closed when classes aren't in session.",
+    contact:"MSSS.Center@Lehman.cuny.edu",
+    location:"Gillet Hall, Room 233-A",
+    website:"https://www.lehman.edu/academics/natural-social-sciences/mathematics/Mathematics-and-Statistics-Student-Success-Center/"
+  },
+  {
+    id:"mec-tut-1", category:"Tutoring", school:"Medgar Evers College",
+    name:"Medgar Evers College Learning Center",
+    offers:"Free tutoring and academic support services across the curriculum.",
+    eligibility:"Open to all Medgar Evers College students.",
+    access:"Visit or contact the Learning Center to schedule a session.",
+    contact:"(718) 270-5138",
+    location:"Room B-1045, 1650 Bedford Avenue",
+    website:"https://www.mec.cuny.edu/academic-affairs/learningcenter/"
+  },
+  {
+    id:"qc-tut-1", category:"Tutoring", school:"Queens College",
+    name:"QC Learning Commons",
+    offers:"Free peer tutoring across subjects (including STEM), plus study space, printing, and computer access.",
+    eligibility:"Open to all Queens College students.",
+    access:"Book a tutoring appointment online, or drop in to the study space during open hours.",
+    contact:"LCommons@qc.cuny.edu · (718) 997-5670",
+    location:"Kiely Hall, Rooms 131 & 144",
+    website:"https://www.qc.cuny.edu/academics/qclc/"
+  },
+  {
+    id:"qc-tut-2", category:"Tutoring", school:"Queens College",
+    name:"Queens College Writing Center",
+    offers:"Free one-on-one writing tutoring for any class or assignment, with staff who tutor multilingually in several languages.",
+    eligibility:"Open to all Queens College students.",
+    access:"Book an appointment through WCOnline, or stop by Kiely 229 for in-person help (appointments required, including walk-ins).",
+    contact:"qc.writing.center@qc.cuny.edu · (718) 997-5676",
+    location:"Kiely Hall, Room 229",
+    website:"https://www.qc.cuny.edu/academics/wc/"
+  },
+  {
+    id:"yc-tut-1", category:"Tutoring", school:"York College",
+    name:"York College Collaborative Learning Center",
+    offers:"Free one-on-one, group, and online tutoring across disciplines, plus skill-building workshops and access to Tutor.com for 24/7 online tutoring.",
+    eligibility:"Open to all York College students.",
+    access:"Log in with your York Network Account to book a session, or visit the center directly.",
+    contact:"clc@york.cuny.edu · (718) 262-2303",
+    location:"Room AC-1C18, 94-20 Guy R. Brewer Blvd",
+    website:"https://www.york.cuny.edu/collaborative-learning-center"
+  },
+  {
+    id:"bmcc-tut-1", category:"Tutoring", school:"Borough of Manhattan Community College",
+    name:"Learning Resource Center (LRC)",
+    offers:"Free individual, small-group, walk-in, and online tutoring, plus subject-specific labs for basic skills/English, ESL, math, reading, writing, and nursing, and instructional computer labs.",
+    eligibility:"Open to all BMCC students.",
+    access:"Visit the reception desk in Room S-510 or call to schedule; online tutoring is available through Upswing with your CUNYfirst login.",
+    contact:"lrctutoring@bmcc.cuny.edu · (212) 220-1383",
+    location:"Room S-510, 199 Chambers Street (also Fiterman Hall, Room F-511)",
+    website:"https://www.bmcc.cuny.edu/lrc/"
+  },
+  {
+    id:"bcc-tut-1", category:"Tutoring", school:"Bronx Community College",
+    name:"Learning Commons",
+    offers:"Free peer and professional tutoring, supplemental instruction, and skill-development support across subjects, plus a dedicated Writing Center and Math Tutorial Lab.",
+    eligibility:"Open to all Bronx Community College students.",
+    access:"Book an in-person or online appointment via Brightspace's BCC Tutoring tab, or use Tutor.com for 24/7 online help.",
+    contact:"learningcommons@bcc.cuny.edu · (929) 314-3731",
+    location:"Sage Hall, Room 100",
+    website:"https://www.bcc.cuny.edu/academics/learning-commons/"
+  },
+  {
+    id:"gtm-tut-1", category:"Tutoring", school:"Guttman Community College",
+    name:"Academic Success Center (ASC)",
+    offers:"Free small-group and embedded tutoring across subjects, plus workshops on study skills and the writing process, and 24/7 access to Tutor.com.",
+    eligibility:"Open to all Guttman Community College students.",
+    access:"Book an appointment through Navigate360, or access Tutor.com through Brightspace with no appointment needed.",
+    contact:"Tutoring@guttman.cuny.edu",
+    location:"Library, Room 105",
+    website:"https://guttman.cuny.edu/academics/asc/"
+  },
+  {
+    id:"hos-tut-1", category:"Tutoring", school:"Hostos Community College",
+    name:"Hostos Academic Learning Center (HALC)",
+    offers:"Free in-person and virtual tutoring in a wide range of subjects — including accounting, biology, chemistry, math, nursing, and more — plus a separate Writing Center for one-on-one writing help.",
+    eligibility:"Open to all Hostos Community College students.",
+    access:"Schedule an appointment online using your CUNYFirst/Microsoft login.",
+    contact:"halctutoring@hostos.cuny.edu · (718) 518-6624",
+    location:"Room C-596",
+    website:"https://www.hostos.cuny.edu/Student-Services/Tutoring-(1)"
+  },
+  {
+    id:"kbc-tut-1", category:"Tutoring", school:"Kingsborough Community College",
+    name:"Kingsborough Learning Center (KLC)",
+    offers:"Free tutoring in most subjects taught at Kingsborough — including math, writing, and science — in person or online, plus 24/7 on-demand tutoring through Tutor.com.",
+    eligibility:"Open to all Kingsborough Community College students.",
+    access:"Book an appointment through TracCloud (select the Learning Center for content tutoring or the Writing Center for writing help), or join the virtual Zoom front desk.",
+    contact:"KLC.KCC@kbcc.cuny.edu · (718) 368-5405",
+    location:"Library Building (in-person sessions); online sessions available via Zoom",
+    website:"https://www.kbcc.cuny.edu/KLC/index.html"
+  },
+  {
+    id:"qcc-tut-1", category:"Tutoring", school:"Queensborough Community College",
+    name:"Center for Tutoring and Academic Support (CTAS)",
+    offers:"Free face-to-face and online tutoring for essential courses and writing assignments across the curriculum (math has its own separate Math Learning Center).",
+    eligibility:"Open to all Queensborough Community College students.",
+    access:"Visit the center to schedule an appointment; some tutoring is available on a walk-in basis.",
+    contact:"AskCTAS@qcc.cuny.edu · (718) 631-6660",
+    location:"Library Building, 1st Floor, Room L-113",
+    website:"https://www.qcc.cuny.edu/tutoring/index.html"
+  },
+  {
+    id:"bar-fin-1", category:"Financial Aid", school:"Baruch College",
+    name:"Baruch College Financial Aid Services",
+    offers:"Guidance on FAFSA and TAP applications, grants, loans, work-study, and scholarships.",
+    eligibility:"Open to all admitted and currently enrolled Baruch College students.",
+    access:"Contact by phone, email, or visit the Baruch One Stop Shop (BOSS) for in-person or virtual counseling.",
+    contact:"FAScustomerservice@baruch.cuny.edu · (646) 312-1360",
+    location:"Room 880, 151 East 25th Street",
+    website:"https://enrollmentmanagement.baruch.cuny.edu/financial-aid-services/"
+  },
+  {
+    id:"bkc-fin-1", category:"Financial Aid", school:"Brooklyn College",
+    name:"Brooklyn College Financial Aid",
+    offers:"Help with FAFSA and TAP applications, grants, loans, work-study, and scholarships.",
+    eligibility:"Open to all admitted and currently enrolled Brooklyn College students.",
+    access:"Call for general questions or schedule an appointment with a financial aid adviser online.",
+    contact:"finaid@brooklyn.cuny.edu · (718) 951-5051",
+    location:"Room 308, West Quad Center",
+    website:"https://www.brooklyn.edu/admissions-aid/financial-aid-scholarships/"
+  },
+  {
+    id:"ccny-fin-1", category:"Financial Aid", school:"City College of New York",
+    name:"CCNY Financial Aid Office",
+    offers:"Assistance with FAFSA, verification, grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled CCNY students.",
+    access:"Appointment-only — book a virtual or on-campus appointment online, or visit the CCNY One Stop in the NAC building's 1st floor lobby for walk-in questions without an appointment.",
+    contact:"financialaid@ccny.cuny.edu · (212) 650-6656",
+    location:"Room 104, Wille Administration Building",
+    website:"https://www.ccny.cuny.edu/financialaid/hoursandlocation",
+    appointmentLink:"https://kiosk.na8.qless.com/kiosk/app/home/227?queues=1118,1119,1120,1122,1123,2126"
+  },
+  {
+    id:"ctech-fin-1", category:"Financial Aid", school:"New York City College of Technology",
+    name:"City Tech Financial Aid Office",
+    offers:"Help completing the FAFSA and TAP, and information on grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled City Tech students.",
+    access:"Contact the office by phone or visit in person for assistance.",
+    contact:"financialaid@citytech.cuny.edu · (718) 260-5700",
+    location:"Room NG-13, Namm Hall",
+    website:"https://www.citytech.cuny.edu/"
+  },
+  {
+    id:"csi-fin-1", category:"Financial Aid", school:"College of Staten Island",
+    name:"CSI Financial Aid Office",
+    offers:"Assistance with FAFSA and TAP applications, grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled CSI students.",
+    access:"Contact the office by phone or visit in person.",
+    contact:"financialaid@csi.cuny.edu · (718) 982-2030",
+    location:"Room 401, Building 2A",
+    website:"https://www.csi.cuny.edu/admissions/paying-college/financial-aid"
+  },
+  {
+    id:"jjc-fin-1", category:"Financial Aid", school:"John Jay College of Criminal Justice",
+    name:"Jay Express Services Center (Financial Aid)",
+    offers:"Financial aid guidance plus combined Admissions, Bursar, and Registrar services in one stop — FAFSA and TAP help, grants, loans, and work-study questions.",
+    eligibility:"Open to all admitted and currently enrolled John Jay students.",
+    access:"Email, call the Enrollment Management Call Center, or book an in-person appointment at the service counter.",
+    contact:"jayexpress@jjay.cuny.edu · (212) 663-7867",
+    location:"Room L.69, New Building",
+    website:"https://www.jjay.cuny.edu/student-life/jay-express"
+  },
+  {
+    id:"leh-fin-1", category:"Financial Aid", school:"Lehman College",
+    name:"Lehman College Financial Aid Office",
+    offers:"Assistance with FAFSA and TAP applications, grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled Lehman College students.",
+    access:"Contact the office by phone or visit in person.",
+    contact:"financial.aid@lehman.cuny.edu · (718) 960-8545",
+    location:"Room 136, Shuster Hall",
+    website:"https://www.lehman.edu/"
+  },
+  {
+    id:"mec-fin-1", category:"Financial Aid", school:"Medgar Evers College",
+    name:"Medgar Evers College Financial Aid Office",
+    offers:"Help with FAFSA and TAP applications, and information on grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled Medgar Evers College students.",
+    access:"Contact the office by phone or visit in person.",
+    contact:"finaid@mec.cuny.edu · (718) 270-6141",
+    location:"Room S108, 1637 Bedford Avenue",
+    website:"https://www.mec.cuny.edu/"
+  },
+  {
+    id:"qc-fin-1", category:"Financial Aid", school:"Queens College",
+    name:"Queens College Financial Aid Services",
+    offers:"Assistance with FAFSA and TAP applications, grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled Queens College students.",
+    access:"Visit in person (no appointment needed), join virtual drop-in hours, or submit a ticket online.",
+    contact:"financialaid@qc.cuny.edu · (718) 997-5102",
+    location:"Jefferson Hall, Room 206",
+    website:"https://www.qc.cuny.edu/faid/"
+  },
+  {
+    id:"yc-fin-1", category:"Financial Aid", school:"York College",
+    name:"York College Financial Aid",
+    offers:"Help with FAFSA and TAP applications, and information on grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled York College students.",
+    access:"Contact the office by phone or visit in person; virtual Zoom service hours are also available.",
+    contact:"finaid@york.cuny.edu · (718) 262-2230",
+    location:"Room 1M08, 94-20 Guy R. Brewer Blvd",
+    website:"https://www.york.cuny.edu/financial-aid"
+  },
+  {
+    id:"bmcc-fin-1", category:"Financial Aid", school:"Borough of Manhattan Community College",
+    name:"BMCC Financial Aid",
+    offers:"Assistance with FAFSA and TAP applications, grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled BMCC students.",
+    access:"Contact the office by phone or visit in person.",
+    contact:"finaid@bmcc.cuny.edu · (212) 220-1430",
+    location:"Room N365, 199 Chambers Street",
+    website:"https://www.bmcc.cuny.edu/finaid/"
+  },
+  {
+    id:"bcc-fin-1", category:"Financial Aid", school:"Bronx Community College",
+    name:"Bronx Community College Financial Aid Office",
+    offers:"Help with FAFSA and TAP applications, and information on grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled BCC students.",
+    access:"Contact the office by phone or visit in person.",
+    contact:"financialaid@bcc.cuny.edu · (718) 289-5700",
+    location:"Room 504, Colston Hall",
+    website:"https://www.bcc.cuny.edu/"
+  },
+  {
+    id:"gtm-fin-1", category:"Financial Aid", school:"Guttman Community College",
+    name:"Guttman Community College Financial Aid Office",
+    offers:"Assistance with FAFSA and TAP applications, grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled Guttman students.",
+    access:"Visit the HUB in person, by appointment, or join an in-person or virtual financial aid workshop.",
+    contact:"financial.aid@guttman.cuny.edu · (646) 313-8011",
+    location:"The HUB Student Information Center, 3rd Floor, 50 West 40th Street",
+    website:"https://guttman.cuny.edu/students/the-hub/financial-aid/"
+  },
+  {
+    id:"hos-fin-1", category:"Financial Aid", school:"Hostos Community College",
+    name:"Hostos Community College Financial Aid Office",
+    offers:"Help with FAFSA and TAP applications, and information on grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled Hostos students.",
+    access:"Walk in during business hours or schedule an appointment; email or call for more immediate service.",
+    contact:"financialaid@hostos.cuny.edu · (718) 518-6555",
+    location:"Room D-B112, 120 East 149th Street",
+    website:"https://www.hostos.cuny.edu/Administrative-Offices/Office-of-Financial-Aid"
+  },
+  {
+    id:"kbc-fin-1", category:"Financial Aid", school:"Kingsborough Community College",
+    name:"Kingsborough Community College Financial Aid Office",
+    offers:"Assistance with FAFSA and TAP applications, grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled Kingsborough students.",
+    access:"Contact the office by phone or visit in person.",
+    contact:"finaid@kbcc.cuny.edu · (718) 368-4644",
+    location:"Room U-201, 2001 Oriental Boulevard",
+    website:"https://www.kbcc.cuny.edu/financialaid/index.html"
+  },
+  {
+    id:"qcc-fin-1", category:"Financial Aid", school:"Queensborough Community College",
+    name:"Queensborough Community College Financial Aid Office",
+    offers:"Help with FAFSA and TAP applications, and information on grants, loans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled Queensborough students.",
+    access:"Contact the office by phone or visit in person; use Financial Aid TV for quick video answers to common questions.",
+    contact:"FinancialAid@qcc.cuny.edu · (718) 631-6367",
+    location:"Library Building, Room 409",
+    website:"https://www.qcc.cuny.edu/financialAid/"
+  },
+  {
+    id:"bar-car-1", category:"Career Services", school:"Baruch College",
+    name:"Starr Career Development Center",
+    offers:"Career counseling, resume and cover letter review, mock interviews, and employer connections.",
+    eligibility:"Open to all Baruch College students and alumni.",
+    access:"Schedule an appointment through the center's website.",
+    contact:"careerdc@baruch.cuny.edu · (646) 312-4670",
+    location:"Room 2-150, 55 Lexington Avenue",
+    website:"https://studentaffairs.baruch.cuny.edu/starr-career-development-center/"
+  },
+  {
+    id:"bkc-car-1", category:"Career Services", school:"Brooklyn College",
+    name:"Magner Career Center",
+    offers:"Career counseling, resume and interview prep, internship and job search help, and career fairs.",
+    eligibility:"Open to all Brooklyn College students and alumni.",
+    access:"Schedule an appointment through the center's website.",
+    contact:"(718) 951-5696",
+    location:"Room 1303, James Hall",
+    website:"https://www.brooklyn.cuny.edu/web/academics/centers/magner"
+  },
+  {
+    id:"ccny-car-1", category:"Career Services", school:"City College of New York",
+    name:"Career and Professional Development Institute",
+    offers:"Career counseling, resume review, mock interviews, and internship and job search support.",
+    eligibility:"Open to all CCNY students and alumni.",
+    access:"Schedule an appointment through the center's website.",
+    contact:"(212) 650-5327",
+    location:"Room 1/116, 160 Convent Avenue",
+    website:"https://www.ccny.cuny.edu/careercenter"
+  },
+  {
+    id:"ctech-car-1", category:"Career Services", school:"New York City College of Technology",
+    name:"Professional Development Center – Career Services",
+    offers:"Career advising, resume review, mock interviews, and job and internship search help for current students and alumni.",
+    eligibility:"Open to all City Tech students and alumni.",
+    access:"Request appointments through Handshake (citytech.joinhandshake.com); email with questions about claiming your account.",
+    contact:"pdc@citytech.cuny.edu · (718) 260-5050",
+    location:"Library Building, Room L-114, 300 Jay Street",
+    website:"https://www.citytech.cuny.edu/pdc/"
+  },
+  {
+    id:"csi-car-1", category:"Career Services", school:"College of Staten Island",
+    name:"Center for Career and Professional Development",
+    offers:"Career counseling, resume review, mock interviews, and internship and job search support.",
+    eligibility:"Open to all CSI students and alumni.",
+    access:"Call for an appointment, visit in person, or book through your Handshake student account.",
+    contact:"careers@csi.cuny.edu · (718) 982-2300",
+    location:"Building 1A, Room 105",
+    website:"https://www.csi.cuny.edu/campus-life/student-services/center-career-and-professional-development"
+  },
+  {
+    id:"jjc-car-1", category:"Career Services", school:"John Jay College of Criminal Justice",
+    name:"Career Learning Lab (Career Development Services)",
+    offers:"Career counseling, resume and interview prep, internship and job search help, and networking support for students and alumni.",
+    eligibility:"Open to all John Jay students and alumni.",
+    access:"Schedule an appointment through Navigate or visit the office directly.",
+    contact:"careers@jjay.cuny.edu · (212) 237-8754",
+    location:"Room L.72.00, New Building",
+    website:"https://www.jjay.cuny.edu/student-life/career-building-job-search/career-learning-lab/students"
+  },
+  {
+    id:"leh-car-1", category:"Career Services", school:"Lehman College",
+    name:"Career Exploration and Development Center",
+    offers:"Career counseling, resume and interview prep, and internship and job search support.",
+    eligibility:"Open to all Lehman College students and alumni.",
+    access:"Schedule an appointment through the center's website.",
+    contact:"(718) 960-8366",
+    location:"Shuster Hall, Room 254",
+    website:"https://www.lehman.edu/career-services"
+  },
+  {
+    id:"mec-car-1", category:"Career Services", school:"Medgar Evers College",
+    name:"Career Management Services",
+    offers:"Career counseling, resume review, and job and internship search assistance.",
+    eligibility:"Open to all Medgar Evers College students and alumni.",
+    access:"Call or email to schedule an appointment.",
+    contact:"aroberson@mec.cuny.edu · (718) 270-6055",
+    location:"Room S-302, 1637 Bedford Avenue",
+    website:"https://www.mec.cuny.edu/student-success/career-management-services"
+  },
+  {
+    id:"qc-car-1", category:"Career Services", school:"Queens College",
+    name:"Center for Career Engagement and Internships",
+    offers:"Career counseling, resume review, mock interviews, and internship placement support.",
+    eligibility:"Open to all Queens College students and alumni.",
+    access:"Call, email, or schedule an appointment through the center's website.",
+    contact:"qc_career@qc.cuny.edu · (718) 997-4465",
+    location:"Frese Hall, Room 213",
+    website:"https://www.qc.cuny.edu/academics/cei"
+  },
+  {
+    id:"yc-car-1", category:"Career Services", school:"York College",
+    name:"York College Career Services",
+    offers:"Career counseling, resume review, mock interviews, and job and internship search support.",
+    eligibility:"Open to all York College students and alumni.",
+    access:"Call or email to schedule an appointment; weekly workshops also run on Tuesdays.",
+    contact:"career@york.cuny.edu · (718) 262-2282",
+    location:"Academic Core, Room 3M01",
+    website:"https://www.york.cuny.edu/career-services"
+  },
+  {
+    id:"bmcc-car-1", category:"Career Services", school:"Borough of Manhattan Community College",
+    name:"Center for Career Development",
+    offers:"Career advising, resume and cover letter review, mock interviews, and job/internship search support, plus career fairs and workshops.",
+    eligibility:"Open to all BMCC students.",
+    access:"Schedule a meeting through Handshake, or visit during in-person or virtual drop-in hours.",
+    contact:"career@bmcc.cuny.edu · (212) 220-8170",
+    location:"Room S-342, 199 Chambers Street",
+    website:"https://www.bmcc.cuny.edu/student-affairs/career/"
+  },
+  {
+    id:"bcc-car-1", category:"Career Services", school:"Bronx Community College",
+    name:"Office of Career Development",
+    offers:"Career specialist appointments, resume and cover letter help, mock interviews, career exploration tools, and a Career Gear boutique offering free professional attire.",
+    eligibility:"Open to all Bronx Community College students.",
+    access:"Call or email to schedule an appointment with a Career Specialist.",
+    contact:"CareerDevelopment@bcc.cuny.edu · (718) 289-5177",
+    location:"Loew Hall, Room 319",
+    website:"https://www.bcc.cuny.edu/campus-resources/career-development/"
+  },
+  {
+    id:"gtm-car-1", category:"Career Services", school:"Guttman Community College",
+    name:"Center for Career Preparation & Partnerships (CCPP)",
+    offers:"Career coaching, internship placement support, resume help, and experiential learning opportunities connecting you with employer partners.",
+    eligibility:"Open to all Guttman Community College students.",
+    access:"Schedule a one-to-one through Starfish, use Handshake (via Grizzly Jobs) for postings, or drop in on Career Drop-In Thursdays.",
+    contact:"partnerships@guttman.cuny.edu · (646) 313-8026",
+    location:"Room 407",
+    website:"https://guttman.cuny.edu/academics/ccpp/"
+  },
+  {
+    id:"hos-car-1", category:"Career Services", school:"Hostos Community College",
+    name:"Career Services Office (CSO)",
+    offers:"One-on-one career counseling, resume and career portfolio help, job/internship search through Handshake, career fairs, and workshops.",
+    eligibility:"Open to all current Hostos students and recent alumni.",
+    access:"Register through Handshake, or visit the office in person; evening hours available by appointment.",
+    contact:"careerservices@hostos.cuny.edu · (718) 518-4468",
+    location:"Savoy (D) Building, Room 210",
+    website:"https://www.hostos.cuny.edu/Administrative-Offices/Career-Services-Office"
+  },
+  {
+    id:"kbc-car-1", category:"Career Services", school:"Kingsborough Community College",
+    name:"Career Development Center",
+    offers:"One-on-one career counseling on values, interests, and career goals; resume and cover letter review; mock interviews; vocational assessments (Strong Interest Inventory, MBTI); and job fairs.",
+    eligibility:"Open to all Kingsborough Community College students.",
+    access:"Email or call to make an appointment (typically 30–60 minutes, 9:30 a.m.–4 p.m.), or visit in person.",
+    contact:"careerdevelopment@kbcc.cuny.edu · (718) 368-5115",
+    location:"Room C-102",
+    website:"https://www.kbcc.cuny.edu/career/index.html"
+  },
+  {
+    id:"qcc-car-1", category:"Career Services", school:"Queensborough Community College",
+    name:"Office of Career Services",
+    offers:"Career advisement and professional development for all majors — resume and cover letter prep, interview skills, and job/internship search help, plus experiential learning and Cooperative Education courses.",
+    eligibility:"Open to all Queensborough Community College students and recent alumni.",
+    access:"Schedule a one-to-one appointment (remote or in-person) by phone; classroom presentations are also arranged through faculty.",
+    contact:"(718) 631-6297",
+    location:"Library Building, Room 429",
+    website:"https://www.qcc.cuny.edu/careerServices/"
+  },
+  {
+    id:"bar-mh-1", category:"Mental Health Support", school:"Baruch College",
+    name:"Baruch College Counseling Center",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled Baruch College students.",
+    access:"Contact the center to schedule an appointment.",
+    contact:"counseling@baruch.cuny.edu · (646) 312-2155",
+    location:"9th Floor, 137 East 25th Street",
+    website:"https://studentaffairs.baruch.cuny.edu/counseling/"
+  },
+  {
+    id:"bkc-mh-1", category:"Mental Health Support", school:"Brooklyn College",
+    name:"Brooklyn College Personal Counseling",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled Brooklyn College students.",
+    access:"Contact the office to schedule an appointment.",
+    contact:"bcpersonalcounseling@gmail.com · (718) 951-5363",
+    location:"0203 James Hall",
+    website:"https://www.brooklyn.cuny.edu/web/about/offices/studentaffairs/health-wellness/counseling/services.php"
+  },
+  {
+    id:"ccny-mh-1", category:"Mental Health Support", school:"City College of New York",
+    name:"CCNY Counseling Center",
+    offers:"Free, short-term individual and group counseling, crisis intervention, and referrals for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled CCNY students.",
+    access:"Email, call, or join the virtual Zoom front desk to schedule an appointment; a counselor is on call for same-day emergencies.",
+    contact:"counseling@ccny.cuny.edu · (212) 650-8222",
+    location:"Marshak Science Building, Room J-15",
+    website:"https://www.ccny.cuny.edu/counseling"
+  },
+  {
+    id:"ctech-mh-1", category:"Mental Health Support", school:"New York City College of Technology",
+    name:"City Tech Counseling",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled City Tech students.",
+    access:"Contact the office to schedule an appointment.",
+    contact:"Counseling@citytech.cuny.edu · (718) 260-5030",
+    location:"Room 108, 300 Jay Street",
+    website:"https://www.citytech.cuny.edu/counseling/"
+  },
+  {
+    id:"csi-mh-1", category:"Mental Health Support", school:"College of Staten Island",
+    name:"CSI Counseling",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled CSI students.",
+    access:"Contact the office to schedule an appointment.",
+    contact:"counseling@csi.cuny.edu · (718) 982-2391",
+    location:"Building 1A, Room 109",
+    website:"https://www.csi.cuny.edu/students/counseling-center"
+  },
+  {
+    id:"jjc-mh-1", category:"Mental Health Support", school:"John Jay College of Criminal Justice",
+    name:"John Jay Counseling Services Center",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled John Jay students.",
+    access:"Contact the office to schedule an appointment.",
+    contact:"intake@jjay.cuny.edu · (212) 237-8111",
+    location:"Room L.68.00NB, 524 West 59th Street",
+    website:"https://www.jjay.cuny.edu/counseling-services-center"
+  },
+  {
+    id:"leh-mh-1", category:"Mental Health Support", school:"Lehman College",
+    name:"Lehman College Counseling Center",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled Lehman College students.",
+    access:"Contact the center to schedule an appointment.",
+    contact:"counseling.center@lehman.cuny.edu · (718) 960-8761",
+    location:"Room 114, 250 Bedford Park Boulevard West",
+    website:"https://www.lehman.edu/counseling-center/"
+  },
+  {
+    id:"mec-mh-1", category:"Mental Health Support", school:"Medgar Evers College",
+    name:"Counseling & Psychological Services",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled Medgar Evers College students.",
+    access:"Call or email to schedule an appointment.",
+    contact:"jjoyner@mec.cuny.edu · (718) 270-4832",
+    location:"Room B-1005D, 1650 Bedford Avenue",
+    website:"https://www.mec.cuny.edu/student-success/counseling-psychological-services/"
+  },
+  {
+    id:"qc-mh-1", category:"Mental Health Support", school:"Queens College",
+    name:"Queens College Counseling Services",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled Queens College students.",
+    access:"Contact the office to schedule an appointment.",
+    contact:"CounselingServices@qc.cuny.edu · (718) 997-5420",
+    location:"Frese Hall, 1st Floor",
+    website:"https://www.qc.cuny.edu/cs/"
+  },
+  {
+    id:"yc-mh-1", category:"Mental Health Support", school:"York College",
+    name:"York College Counseling Center",
+    offers:"Free, confidential short-term counseling and crisis support for personal and emotional concerns.",
+    eligibility:"Open to all currently enrolled York College students.",
+    access:"Contact the center to schedule an appointment.",
+    contact:"counseling@york.cuny.edu · (718) 262-2272",
+    location:"Academic Core, Room 1G03",
+    website:"https://www.york.cuny.edu/counseling-center"
+  },
+  {
+    id:"bmcc-mh-1", category:"Mental Health Support", school:"Borough of Manhattan Community College",
+    name:"BMCC Counseling Center",
+    offers:"Free, confidential individual and group counseling for anxiety, depression, relationships, stress, and other concerns affecting academic life, plus crisis support and ongoing therapy groups.",
+    eligibility:"Open to all currently enrolled BMCC students.",
+    access:"Email or call to schedule; walk-in appointments also available in Room S-343.",
+    contact:"counselingcenter@bmcc.cuny.edu · (212) 220-8140",
+    location:"Room S-343, 199 Chambers Street",
+    website:"https://www.bmcc.cuny.edu/student-affairs/counseling/"
+  },
+  {
+    id:"bcc-mh-1", category:"Mental Health Support", school:"Bronx Community College",
+    name:"Office of Personal Counseling (OPC)",
+    offers:"Free, confidential short-term individual and group counseling to help students cope with emotional, developmental, or psychological concerns affecting their personal and academic growth. Available in English and Spanish.",
+    eligibility:"Open to all currently enrolled Bronx Community College students.",
+    access:"Walk in, call and leave a message for a callback, or email the Intake Coordinator to schedule.",
+    contact:"Personal.Counseling@bcc.cuny.edu · (718) 289-5223",
+    location:"Loew Hall, 4th Floor, Room 419",
+    website:"https://www.bcc.cuny.edu/campus-resources/personal-counseling-services/"
+  },
+  {
+    id:"gtm-mh-1", category:"Mental Health Support", school:"Guttman Community College",
+    name:"Counseling and Wellness Center",
+    offers:"Free, confidential mental health counseling (therapy) for problem-solving, mood stabilization, adjustment issues, and other personal concerns, offered in person or via Zoom.",
+    eligibility:"Open to all currently enrolled Guttman Community College students.",
+    access:"Call or visit to schedule an appointment; after-hours crisis support available by calling the clinician line or NYC Well.",
+    contact:"Counseling.wellness@guttman.cuny.edu · (646) 313-8026",
+    location:"Rooms 509 A/B/C",
+    website:"https://guttman.cuny.edu/students/counseling-and-wellness-center/"
+  },
+  {
+    id:"hos-mh-1", category:"Mental Health Support", school:"Hostos Community College",
+    name:"Carlos L. González Counseling Center",
+    offers:"Free, confidential personal counseling to address concerns that may interfere with academic success and personal development. No appointment needed for emergencies — walk in for an immediate screening.",
+    eligibility:"Open to all registered Hostos Community College students with a valid Student ID.",
+    access:"Call, email, or walk in; emergencies are seen immediately with no appointment necessary.",
+    contact:"infocounseling@hostos.cuny.edu · (718) 518-4461 / 4351",
+    location:"450 Grand Concourse, Building C, Room C330",
+    website:"https://www.hostos.cuny.edu/Administrative-Offices/SDEM/Counseling-Services"
+  },
+  {
+    id:"kbc-mh-1", category:"Mental Health Support", school:"Kingsborough Community College",
+    name:"Counseling Center",
+    offers:"Free, confidential individual and group counseling for personal and emotional issues affecting academic goals, plus urgent walk-in crisis intervention for students in distress.",
+    eligibility:"Open to all currently enrolled Kingsborough Community College students.",
+    access:"Call or email to schedule an appointment; walk-in crisis intervention is available for urgent needs with no appointment required.",
+    contact:"Counseling.Center@kbcc.cuny.edu · (718) 368-5975",
+    location:"2001 Oriental Boulevard",
+    website:"https://www.kbcc.cuny.edu/sws/counseling-center.html"
+  },
+  {
+    id:"qcc-mh-1", category:"Mental Health Support", school:"Queensborough Community College",
+    name:"Counseling Center",
+    offers:"Free, confidential short-term individual counseling and support groups, crisis intervention, and new-student orientation courses (ST-100/101) that build wellness and critical-thinking skills.",
+    eligibility:"Open to all currently enrolled Queensborough Community College students.",
+    access:"Call to schedule an appointment; if the Counseling Center is closed and you're in crisis, contact QCC Public Safety at (718) 631-6320 or call/text 988.",
+    contact:"Counseling@qcc.cuny.edu · (718) 631-6370",
+    location:"Library Building, Room 422",
+    website:"https://www.qcc.cuny.edu/counseling/index.html"
+  },
+  {
+    id:"lag-tut-1", category:"Tutoring", school:"LaGuardia Community College",
+    name:"LaGuardia Writing Center",
+    offers:"Free one-on-one tutoring on any phase or aspect of writing for any class — from brainstorming an outline to polishing a final draft.",
+    eligibility:"Open to all LaGuardia Community College students.",
+    access:"Walk in or book a same-day appointment; sessions run in person or by Zoom, up to three times a week.",
+    contact:"WCLab@lagcc.cuny.edu · (718) 482-5688",
+    location:"B-Building, Room B-200",
+    website:"https://www.laguardia.edu/writingcenter/"
+  },
+  {
+    id:"lag-fin-1", category:"Financial Aid", school:"LaGuardia Community College",
+    name:"LaGuardia Student Financial Services",
+    offers:"Help completing the FAFSA and NYS TAP application, plus information on grants, scholarships, tuition payment plans, and work-study.",
+    eligibility:"Open to all admitted and currently enrolled LaGuardia students.",
+    access:"Visit the Resource Center in Room C-109 for FAFSA help, or contact the main office for account-specific questions.",
+    contact:"financialaid@lagcc.cuny.edu · (718) 482-5242",
+    location:"C-Building, Room C-107",
+    website:"https://www.laguardia.edu/payingforcollege/"
+  },
+  {
+    id:"lag-adv-1", category:"Academic Advising", school:"LaGuardia Community College",
+    name:"LaGuardia Academic Advising",
+    offers:"Help choosing courses, planning your major, and mapping out transfer or career goals — every student is paired with an advisor, a faculty mentor, and a peer advisor.",
+    eligibility:"Open to all LaGuardia Community College students.",
+    access:"Schedule an appointment through Navigate, or visit the office directly.",
+    contact:"(718) 482-6070",
+    location:"B-Building, Room B-102",
+    website:"https://www.laguardia.edu/academics/advising/"
+  },
+  {
+    id:"lag-mh-1", category:"Mental Health Support", school:"LaGuardia Community College",
+    name:"LaGuardia Wellness Center",
+    offers:"Free short-term individual and group counseling, crisis support, and workshops on stress, anxiety, and other topics affecting student life.",
+    eligibility:"Open to all currently enrolled LaGuardia students.",
+    access:"Complete the online Student Intake Form to begin, or call to schedule; virtual and in-person sessions are available.",
+    contact:"WellnessCenter@lagcc.cuny.edu · (718) 482-5471",
+    location:"C-Building, Room C-249",
+    website:"https://www.laguardia.edu/students/the-wellness-center/"
+  },
+  {
+    id:"lag-car-1", category:"Career Services", school:"LaGuardia Community College",
+    name:"Center for Career & Professional Development (CCPD)",
+    offers:"Resume and cover letter reviews, mock interviews, career advising, and job-search assistance for students and alumni.",
+    eligibility:"Open to all current LaGuardia students and alumni.",
+    access:"Visit the office in B-114 or schedule a Career Advisor appointment through EAB Navigate.",
+    contact:"career@lagcc.cuny.edu · (718) 482-5235",
+    location:"B-Building, Room B-114",
+    website:"https://www.laguardia.edu/ccpd/"
+  },
+  {
+    id:"hun-tut-1", category:"Tutoring", school:"Hunter College",
+    name:"Rockowitz Writing Center",
+    offers:"Free tutoring on any stage of the writing process — outlining, drafting, revising — for coursework, admissions essays, resumes, and cover letters.",
+    eligibility:"Open to all Hunter College students, undergraduate and graduate.",
+    access:"Register for a weekly appointment or drop-in session, or book an e-tutoring session online.",
+    contact:"rwc@hunter.cuny.edu · (212) 772-4212",
+    location:"Silverstein Student Success Center, 7th Floor, Cooperman Library, East Building",
+    website:"https://www.hunter.cuny.edu/rwc"
+  },
+  {
+    id:"hun-fin-1", category:"Financial Aid", school:"Hunter College",
+    name:"Hunter College Office of Financial Aid",
+    offers:"Guidance on FAFSA and TAP applications, grants, loans, work-study, and reviewing your financial aid award.",
+    eligibility:"Open to all admitted and currently enrolled Hunter College students.",
+    access:"Visit in person, submit a ticket through the Student Support Portal, or reach the Virtual Front Desk.",
+    contact:"finaid@hunter.cuny.edu · (212) 772-4820",
+    location:"Room N241, North Building",
+    website:"https://www.hunter.cuny.edu/students/financial-aid/office-of-financial-aid/"
+  },
+  {
+    id:"hun-adv-1", category:"Academic Advising", school:"Hunter College",
+    name:"Hunter College Office of Advising",
+    offers:"Help selecting courses, understanding degree requirements, and planning your academic path to graduation.",
+    eligibility:"Open to all Hunter College undergraduate students.",
+    access:"Schedule an appointment using the Navigate Student mobile app.",
+    contact:"(212) 772-4882",
+    location:"Room 1119, East Building",
+    website:"https://www.hunter.cuny.edu/advising"
+  },
+  {
+    id:"bar-adv-1", category:"Academic Advising", school:"Baruch College",
+    name:"Office of Undergraduate Advisement",
+    offers:"30-minute academic advising sessions covering course selection, academic progress, and strategies for success, plus peer advising and peer success coaching from current Baruch students.",
+    eligibility:"Open to all Baruch College undergraduate students.",
+    access:"Appointment-only, in-person or via Zoom — schedule through Navigate. Appointments open up to 96 hours out; a no-show means a 2-week wait before rebooking.",
+    contact:"Academic.Advisement@baruch.cuny.edu · (646) 312-4260",
+    location:"Newman Vertical Campus, 5th Floor, Room B5-215",
+    website:"https://www.baruch.cuny.edu/advisement/meet-with-an-advisor/",
+    appointmentLink:"https://www.baruch.cuny.edu/advisement/navigate/"
+  },
+  {
+    id:"bkc-adv-1", category:"Academic Advising", school:"Brooklyn College",
+    name:"Center for Academic Advisement and Student Success (CAASS)",
+    offers:"Academic advisement for first-year, transfer, and continuing undergraduate students — helping you establish, monitor, and stay on track to meet your graduation requirements.",
+    eligibility:"Open to all Brooklyn College undergraduate students. Graduate students should contact their program advisor instead.",
+    access:"Schedule an appointment through the EAB Navigate app.",
+    contact:"caass@brooklyn.cuny.edu · (718) 951-5471",
+    location:"Room 3207, Boylan Hall",
+    website:"https://students.brooklyn.edu/knowledge-base/center-for-academic-advisement-and-student-success-caass/"
+  },
+  {
+    id:"ctech-adv-1", category:"Academic Advising", school:"New York City College of Technology",
+    name:"New Student Center",
+    offers:"Initial academic advisement for incoming first-year and transfer students during their first semester — after that, each student is assigned a faculty advisor within their program/department.",
+    eligibility:"Open to all City Tech students, especially incoming first-year and transfer students.",
+    access:"Visit or call the New Student Center; continuing students should check with their academic department for their assigned advisor.",
+    contact:"(718) 260-5013",
+    location:"Namm Hall, Room 104",
+    website:"https://www.citytech.cuny.edu/current-student/docs/service_area_office_hours.pdf"
+  },
+  {
+    id:"csi-adv-1", category:"Academic Advising", school:"College of Staten Island",
+    name:"Center for Advising and Academic Success (CAAS)",
+    offers:"Guidance on major and minor declaration, general education requirements, GPA calculations, DegreeWorks, and course selection, plus support for academic standing concerns and financial aid course compliance issues.",
+    eligibility:"Open to all College of Staten Island students.",
+    access:"Check CUNYfirst Student Center for your assigned advisor's name, then call or email to schedule.",
+    contact:"advisement@csi.cuny.edu · (718) 982-2280",
+    location:"Building 1A, Room 101",
+    website:"https://www.csi.cuny.edu/students/academic-advisement"
+  },
+  {
+    id:"mec-adv-1", category:"Academic Advising", school:"Medgar Evers College",
+    name:"Academic Advising Center",
+    offers:"Assigns every student a trained academic advisor for guidance on curriculum requirements, academic standards, degree planning, and college policies, from sophomore standing through graduation.",
+    eligibility:"Open to all Medgar Evers College students with 30 or more credits; first-year students are advised through their program's faculty mentors.",
+    access:"Visit or call the center; check DegreeWorks to track your requirements alongside your advisor.",
+    contact:"(718) 270-5192",
+    location:"Student Services Building, Room S-220",
+    website:"https://ares.mec.cuny.edu/academic-advising-center/"
+  },
+  {
+    id:"qc-adv-1", category:"Academic Advising", school:"Queens College",
+    name:"Academic Advising Center (AAC)",
+    offers:"Centralized academic advising for incoming, current, and returning undergraduates — course planning, degree requirement navigation, and a required New Student Advising Session for incoming students not in a special program.",
+    eligibility:"Open to all Queens College undergraduate students.",
+    access:"Book online via the QC Navigate app, in person, or by phone — separate lines for continuing vs. new students.",
+    contact:"advising@qc.cuny.edu · (718) 997-5599 (continuing students) / (718) 997-5573 (new students)",
+    location:"Kiely Hall, Room 217",
+    website:"https://www.qc.cuny.edu/aac/"
+  },
+  {
+    id:"yc-adv-1", category:"Academic Advising", school:"York College",
+    name:"Academic Advisement Center",
+    offers:"Helps students develop educational plans to support persistence to graduation, including designated-advisor sessions each semester.",
+    eligibility:"Open to all York College students.",
+    access:"Complete the online form to connect with your designated advisor, then meet via Zoom or in person.",
+    contact:"advisement@york.cuny.edu · (718) 262-2280",
+    location:"Academic Core, Room 2C01",
+    website:"https://www.york.cuny.edu/advisement"
+  },
+  {
+    id:"bmcc-adv-1", category:"Academic Advising", school:"Borough of Manhattan Community College",
+    name:"Academic Advisement and Transfer Center (AATC)",
+    offers:"Academic and transfer advising to build a multi-semester plan to graduation — course selection, degree requirements, and preparation for transferring to a four-year college. All matriculated students must meet with an advisor each semester before registering.",
+    eligibility:"Open to all BMCC students.",
+    access:"Email or call to connect with your assigned advisor; first-time and continuing students are advised through slightly different processes.",
+    contact:"aatc@bmcc.cuny.edu · (212) 220-8315",
+    location:"Room S-108, 199 Chambers Street",
+    website:"https://www.bmcc.cuny.edu/academics/advisement/"
+  },
+  {
+    id:"bcc-adv-1", category:"Academic Advising", school:"Bronx Community College",
+    name:"Academic Advising",
+    offers:"Every student is assigned a professional advisor to build a long-term educational plan, discuss degree requirements, and stay on track for graduation, alongside faculty advisors in their major.",
+    eligibility:"Open to all Bronx Community College students; contact varies by program (ASAP, College Discovery, or general advisement).",
+    access:"Call or email based on your program — general students call (718) 289-5401; new students call (718) 289-5120 — or schedule through the BCC Navigate app.",
+    contact:"academic.advisement@bcc.cuny.edu · (718) 289-5401",
+    location:"Advisor assigned via CUNYfirst/BCC Navigate — office varies by program",
+    website:"https://www.bcc.cuny.edu/academics/academic-advising/"
+  },
+  {
+    id:"gtm-adv-1", category:"Academic Advising", school:"Guttman Community College",
+    name:"Office of Advising & Transfer Support",
+    offers:"Every student is matched with a dedicated Student Success Advisor (SSA) from their first day through graduation, for academic, career, and transfer planning support, plus dedicated transfer specialists.",
+    eligibility:"Open to all Guttman Community College students.",
+    access:"Call or email your assigned advisor; advising hours are typically Monday–Friday, 9 a.m.–5 p.m.",
+    contact:"advising@guttman.cuny.edu",
+    location:"Mezzanine (2nd Floor)",
+    website:"https://guttman.cuny.edu/students/advisement/"
+  },
+  {
+    id:"hos-adv-1", category:"Academic Advising", school:"Hostos Community College",
+    name:"Student Success Coaching Unit (SSCU)",
+    offers:"Every student is assigned a Student Success Coach for help with degree planning, course selection, and staying on track for graduation, plus referrals to tutoring, wellness, and other campus resources.",
+    eligibility:"Open to all Hostos Community College students not enrolled in ASAP or College Discovery, which have their own dedicated advisement services.",
+    access:"Email, call, or drop by the office to schedule an appointment with your assigned Student Success Coach.",
+    contact:"sscu@hostos.cuny.edu · (718) 664-2560",
+    location:"Academic Advisement Center, 429 Grand Concourse, 2nd Floor",
+    website:"https://www.hostos.cuny.edu/Administrative-Offices/SDEM/SSCU"
+  },
+  {
+    id:"kbc-adv-1", category:"Academic Advising", school:"Kingsborough Community College",
+    name:"Academic Advisement Center",
+    offers:"Every student is paired with an academic advisor through one of four Advisement Academies (grouped by major) for course selection, degree requirements, transfer, and career planning. A specialized Health and STEM Advisement Office is also available for those majors.",
+    eligibility:"Open to all Kingsborough Community College students. Students in ASAP, College Discovery, or KCC Online are advised through their own program instead.",
+    access:"Log into CUNYfirst or Navigate to find your assigned advisor, or schedule an appointment through Navigate.",
+    contact:"See Navigate app for your assigned advisor's contact info",
+    location:"Advisement Academies vary by major; Health & STEM Advisement Office in Room E-102",
+    website:"https://www.kbcc.cuny.edu/Advisement/index.html"
+  },
+  {
+    id:"qcc-adv-1", category:"Academic Advising", school:"Queensborough Community College",
+    name:"Academy Advisement",
+    offers:"Every student is paired with an academy advisor (specialized across all majors and programs) for help with educational planning, degree requirements, and career goal exploration.",
+    eligibility:"Open to all Queensborough Community College students not enrolled in ASAP or another special program, which have their own dedicated advisers.",
+    access:"Walk in for limited in-person hours, or book a virtual Zoom session or phone call through Navigate360; call or email if your preferred option is full.",
+    contact:"academyadvisement@qcc.cuny.edu · (718) 631-6329",
+    location:"Library Building, Rooms L-430 & L-434",
+    website:"https://www.qcc.cuny.edu/academies/advisement.html"
+  },
+  {
+    id:"leh-adv-1", category:"Academic Advising", school:"Lehman College",
+    name:"Office of Undergraduate Academic Advisement",
+    offers:"Assigns every undergraduate an advisor by area of interest to help with course selection, degree planning, and staying on track to graduation.",
+    eligibility:"Open to all Lehman College undergraduate students.",
+    access:"Schedule an appointment through Navigate, or get a quick answer via live chat or an Academic Advisement Hub.",
+    contact:"(718) 960-8106",
+    location:"Shuster Hall, Room 275B",
+    website:"https://www.lehman.edu/academics/advising/"
+  },
+  {
+    id:"ccny-adv-1", category:"Academic Advising", school:"City College of New York",
+    name:"Student Academic Success Hub (\"The Hub\")",
+    offers:"General academic advising and triage for students who are undecided on a major or unsure which of CCNY's divisional advising offices to contact — CCNY's advising is split by school and major, and the Hub points you to the right one.",
+    eligibility:"Open to all CCNY students, especially those undecided on a major or new to the college.",
+    access:"Call, email, or visit the office directly.",
+    contact:"thehub@ccny.cuny.edu · (212) 650-6115",
+    location:"North Academic Center (NAC), Room 1/219",
+    website:"https://www.ccny.cuny.edu/registrar/academic-advising-units"
+  },
+  {
+    id:"ccny-adv-2", category:"Academic Advising", school:"City College of New York",
+    name:"Colin Powell School Office of Academic Advising",
+    offers:"Academic advising for Colin Powell School majors — including social sciences, business, psychology, and public service programs — covering course planning, degree audits, and using DegreeWorks to track requirements.",
+    eligibility:"Open to CCNY students majoring in a Colin Powell School program.",
+    access:"Contact your faculty advisor directly, or reach out to the office to be connected with the right advisor.",
+    contact:"(212) 650-8551",
+    location:"North Academic Center (NAC), Room 6-293",
+    website:"https://www.ccny.cuny.edu/colinpowellschool/office-academic-advisors"
+  },
+  {
+    id:"jjc-adv-1", category:"Academic Advising", school:"John Jay College of Criminal Justice",
+    name:"Academic Advisement Center",
+    offers:"Academic planning and support for course selection, general education requirements, major advisement, GPA questions, and registration — including specialized advisement for entering, transfer, and returning students.",
+    eligibility:"Open to all John Jay students.",
+    access:"Schedule an appointment through Navigate 360, join virtual walk-in hours (Wed & Thurs), or call to be connected with an advisor.",
+    contact:"academicadvising@jjay.cuny.edu · (646) 557-4872",
+    location:"Room L.73, New Building",
+    website:"https://www.jjay.cuny.edu/academics/academic-resources-services/academic-advisement-center"
+  },
+  {
+    id:"hun-mh-1", category:"Mental Health Support", school:"Hunter College",
+    name:"Hunter College Counseling and Wellness Services",
+    offers:"Free, confidential short-term counseling, crisis intervention, and referrals for personal and emotional difficulties affecting academic life.",
+    eligibility:"Open to all currently enrolled Hunter College students.",
+    access:"Contact the office to schedule an intake appointment; for after-hours emergencies, contact Public Safety.",
+    contact:"personalcounseling@hunter.cuny.edu · (212) 772-4931",
+    location:"Room 1119B, East Building",
+    website:"https://www.hunter.cuny.edu/students/health-wellness/counseling-and-wellness-services/counseling-services/contact/"
+  },
+  {
+    id:"hun-car-1", category:"Career Services", school:"Hunter College",
+    name:"Hunter College Career Development Services",
+    offers:"One-on-one career counseling, resume and cover letter review, mock interviews, internship search help, and career fairs.",
+    eligibility:"Open to all current Hunter College students and alumni.",
+    access:"Schedule an appointment through Navigate, or attend Wednesday walk-in hours, 9 a.m.–5 p.m.",
+    contact:"career@hunter.cuny.edu · (212) 772-4850",
+    location:"Room 805, East Building",
+    website:"https://www.hunter.cuny.edu/students/career-center/contact/"
+  },
+  {
+    id:"crs-1", category:"Free Courses", school:"All",
+    name:"NYPL Free Classes & TechConnect",
+    offers:"Free technology, computer skills, coding, and English-language classes for adults, held at library branches across Manhattan, the Bronx, and Staten Island.",
+    eligibility:"Open to all NYC residents; most classes require a free library card.",
+    access:"Browse and register for upcoming classes on the NYPL events calendar, or drop in for tech help at any branch.",
+    contact:"(917) 275-6975",
+    location:"Branches across Manhattan, the Bronx & Staten Island",
+    website:"https://www.nypl.org/education/adults"
+  },
+  {
+    id:"crs-2", category:"Free Courses", school:"All",
+    name:"Brooklyn Public Library Adult Learning Centers",
+    offers:"Free classes in reading, writing, math, ESOL, computer basics, and high school equivalency (HSE) prep, plus one-on-one career support.",
+    eligibility:"Open to Brooklyn adults 17 and older; several programs focus on learners below the high-school reading level.",
+    access:"Call the Adult Learning hotline or email to schedule an intake appointment at one of five Learning Centers.",
+    contact:"718-622-4460 · casemanagement@bklynlibrary.org",
+    location:"Adult Learning Centers across Brooklyn (Central, Bedford, Flatbush & more)",
+    website:"https://www.bklynlibrary.org/adult-learning"
+  },
+  {
+    id:"crs-3", category:"Free Courses", school:"All",
+    name:"Queens Public Library Adult Learner Program",
+    offers:"Free ESOL, adult basic education, HSE/TASC prep, citizenship prep, and technology-training classes through the Job & Business Academy.",
+    eligibility:"Open to Queens residents with a free library card; some classes fill quickly and use a lottery for open seats.",
+    access:"Call your nearest Adult Learning Center about openings, or register for a Job & Business Academy tech workshop online.",
+    contact:"718-990-0754",
+    location:"Centers across Queens (Jamaica, Flushing, Long Island City & more)",
+    website:"https://www.queenslibrary.org/programs-activities/job-business/technology-help"
+  },
+  {
+    id:"lag-ce-1", category:"Free Courses", school:"LaGuardia Community College",
+    name:"LaGuardia Division of Adult and Continuing Education (ACE)",
+    offers:"The largest continuing education division of any CUNY campus — English language classes, high school equivalency prep, and career training programs in fields like healthcare, construction, and IT. Some programs are free or scholarship-eligible; others charge tuition.",
+    eligibility:"Open to NYC adults; specific eligibility and cost vary by program.",
+    access:"Call, email, or visit laguardia.edu/ce to browse the current course catalog and register.",
+    contact:"acereg@lagcc.cuny.edu · (718) 482-7244",
+    location:"C-Building, 31-10 Thomson Avenue",
+    website:"https://www.laguardia.edu/ce"
+  },
+  {
+    id:"hun-ce-1", category:"Free Courses", school:"Hunter College",
+    name:"Hunter College Continuing Education",
+    offers:"Certificate programs and professional development courses for working professionals, veterans, and career-changers, in fields like business, design, health professions, and legal studies. Most courses charge tuition rather than being free.",
+    eligibility:"Open to the public; some certificate programs have prerequisites.",
+    access:"Request information online, or call with questions about a course or class location.",
+    contact:"(212) 650-3850",
+    location:"East Building, 10th Floor, Room E1022, 695 Park Avenue",
+    website:"https://continuing-ed.hunter.cuny.edu/"
+  },
+  {
+    id:"crs-5", category:"Free Courses", school:"All",
+    name:"CUNY Start",
+    offers:"A low-cost, intensive pre-college program that strengthens reading, writing, and math skills before credit-bearing coursework begins, so you start college ready.",
+    eligibility:"Open to students accepted to a CUNY college who place into developmental English or math.",
+    access:"Attend a CUNY Start information session at your CUNY campus, then meet with a program advisor to enroll.",
+    contact:"Contact your CUNY campus's CUNY Start office",
+    location:"CUNY community colleges in all five boroughs",
+    website:"https://www.cuny.edu/academics/current-initiatives/k16/prep/"
+  },
+  {
+    id:"crs-6", category:"Free Courses", school:"All",
+    name:"Per Scholas Tech Career Training",
+    offers:"Tuition-free, full-time technology certification courses (IT Support, Cybersecurity, and more), with exam vouchers, career coaching, and job placement support.",
+    eligibility:"Open to NYC adults living in the five boroughs with valid U.S. work authorization; no prior tech background required.",
+    access:"Complete the eligibility form on the Per Scholas website, then attend an admissions info session at the Bronx campus.",
+    contact:"Apply online at perscholas.org",
+    location:"Per Scholas campus in the Bronx, serving all five boroughs",
+    website:"https://perscholas.org/locations/new-york/"
+  }
+];
+
+const CAMPUS_BADGES = [
+  // Colors are each school's real official/athletics colors, sourced from
+  // their brand guidelines or athletics identity (not an arbitrary palette):
+  // LaGuardia: red ("Rebel the Red Hawk" mascot) · Hunter: Hawks purple
+  // Queens: Knights blue · CCNY: Pantone 2665C purple (official since 1800s)
+  // Baruch: institutional blue · BMCC: official brand orange (paired w/ blue)
+  // Brooklyn: Bulldogs burgundy · John Jay: Bloodhounds navy
+  //
+  // Icons are original generic academic glyphs (a building, a gothic tower,
+  // a sunburst, a star, a lettered shield) — not reproductions of any
+  // school's actual trademarked logo artwork.
+  { short:"LaGuardia", mono:"LG", icon:"star", color:"#C41230", x:32, y:18, w:150, h:54, rot:-5 },
+  { short:"Hunter", mono:"HC", icon:"building1", color:"#3F0157", x:228, y:4, w:126, h:50, rot:3 },
+  { short:"Queens", mono:"QC", icon:"building2", color:"#0033A0", x:418, y:6, w:138, h:52, rot:-3 },
+  { short:"CCNY", mono:"CC", icon:"tower", color:"#6A4C93", x:588, y:88, w:138, h:52, rot:4 },
+  { short:"Baruch", mono:"B", icon:"shield", color:"#002D72", x:8, y:178, w:128, h:50, rot:3 },
+  { short:"BMCC", mono:"BM", icon:"sun", color:"#FF6600", x:612, y:228, w:134, h:52, rot:-4 },
+  { short:"Brooklyn", mono:"BK", icon:"building3", color:"#A20641", x:18, y:328, w:144, h:52, rot:-3 },
+  { short:"John Jay", mono:"JJ", icon:"shield", color:"#002D62", x:588, y:348, w:144, h:50, rot:3 }
+];
+
+/* Each returns white-filled SVG markup (plus school-color "cut-in" details)
+   normalized to a 32x32 box centered on origin (-16..16). Caller wraps in
+   a <g transform="translate(cx,cy) scale(s)">. */
+function schoolIconGlyph(type, color, letters){
+  switch(type){
+    case "building1": // flat-roof block with square windows (Hunter-style)
+      return `
+        <rect x="-13" y="-11" width="26" height="22" fill="#fff"/>
+        <rect x="-13" y="-14" width="26" height="4" fill="#fff"/>
+        <rect x="-9" y="-6" width="4" height="4" fill="${color}"/>
+        <rect x="-2" y="-6" width="4" height="4" fill="${color}"/>
+        <rect x="5" y="-6" width="4" height="4" fill="${color}"/>
+        <rect x="-9" y="1" width="4" height="4" fill="${color}"/>
+        <rect x="-2" y="1" width="4" height="4" fill="${color}"/>
+        <rect x="5" y="1" width="4" height="4" fill="${color}"/>
+        <rect x="-3" y="7" width="6" height="4" fill="${color}"/>`;
+    case "building2": // temple-front with pediment and columns (Queens-style)
+      return `
+        <path d="M-14 -6 L0 -15 L14 -6 Z" fill="#fff"/>
+        <rect x="-13" y="-6" width="26" height="20" fill="#fff"/>
+        <rect x="-10" y="-3" width="3" height="14" fill="${color}"/>
+        <rect x="-4.5" y="-3" width="3" height="14" fill="${color}"/>
+        <rect x="1" y="-3" width="3" height="14" fill="${color}"/>
+        <rect x="6.5" y="-3" width="3" height="14" fill="${color}"/>`;
+    case "building3": // clock-tower building with arched windows (Brooklyn-style)
+      return `
+        <rect x="-13" y="-4" width="26" height="18" fill="#fff"/>
+        <path d="M-2 -15 h4 v4 h5 l-7 8 l-7 -8 h5 Z" fill="#fff"/>
+        <circle cx="0" cy="-8" r="2.6" fill="${color}"/>
+        <path d="M-9 0 a3 3 0 0 1 6 0 v6 h-6 Z" fill="${color}"/>
+        <path d="M-3 0 a3 3 0 0 1 6 0 v6 h-6 Z" fill="${color}"/>
+        <path d="M3 0 a3 3 0 0 1 6 0 v6 h-6 Z" fill="${color}"/>`;
+    case "tower": // gothic tower with crenellations (CCNY-style)
+      return `
+        <path d="M-9 -15 h3 v3 h3 v-3 h3 v3 h3 v-3 h3 v5 h-15 Z" fill="#fff"/>
+        <rect x="-9" y="-10" width="18" height="24" fill="#fff"/>
+        <path d="M-3 -2 a3 3 0 0 1 6 0 v12 h-6 Z" fill="${color}"/>`;
+    case "sun": // radiating sunburst (BMCC-style)
+      return Array.from({length:8}).map((_,i)=>{
+        const ang = (i*45)*Math.PI/180;
+        const x1 = Math.cos(ang)*7, y1 = Math.sin(ang)*7;
+        const x2 = Math.cos(ang)*15, y2 = Math.sin(ang)*15;
+        return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#fff" stroke-width="3.4" stroke-linecap="round"/>`;
+      }).join("") + `<circle cx="0" cy="0" r="6.5" fill="#fff"/>`;
+    case "star": // six-point star flourish (LaGuardia-style)
+      return Array.from({length:6}).map((_,i)=>{
+        const ang = (i*60)*Math.PI/180;
+        const tipX = Math.cos(ang)*15, tipY = Math.sin(ang)*15;
+        const a1 = ang - 0.32, a2 = ang + 0.32;
+        const bx1 = Math.cos(a1)*5.5, by1 = Math.sin(a1)*5.5;
+        const bx2 = Math.cos(a2)*5.5, by2 = Math.sin(a2)*5.5;
+        return `<path d="M${bx1.toFixed(1)} ${by1.toFixed(1)} L${tipX.toFixed(1)} ${tipY.toFixed(1)} L${bx2.toFixed(1)} ${by2.toFixed(1)} Z" fill="#fff"/>`;
+      }).join("") + `<circle cx="0" cy="0" r="5" fill="#fff"/>`;
+    case "shield": // shield outline with a colored monogram
+      return `
+        <path d="M0 -15 L13 -10 V2 C13 10 7 15 0 17 C-7 15 -13 10 -13 2 V-10 Z" fill="#fff"/>
+        <text x="0" y="1.5" text-anchor="middle" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="800" font-size="${letters.length>1?12:15}" fill="${color}">${letters}</text>`;
+    case "cap": // generic graduation cap (fallback for schools without a researched brand color yet)
+      return `
+        <path d="M0 -10 L16 -3 L0 4 L-16 -3 Z" fill="#fff"/>
+        <path d="M-8 0 v6 c0 3 4 5 8 5 s8 -2 8 -5 v-6" fill="none" stroke="#fff" stroke-width="2.4"/>
+        <line x1="16" y1="-3" x2="16" y2="7" stroke="#fff" stroke-width="2"/>
+        <circle cx="16" cy="9" r="2" fill="#fff"/>`;
+    default:
+      return `<circle cx="0" cy="0" r="15" fill="#fff"/>`;
+  }
+}
+
+/* Maps a school's full official name (as used in SCHOOLS) to its visual
+   identity for badges elsewhere in the app (profile preview, etc). Schools
+   not yet researched fall back to a neutral navy cap icon rather than a
+   guessed color. */
+const SCHOOL_VISUALS = {
+  "LaGuardia Community College": { color:"#C41230", icon:"star", mono:"LG" },
+  "Hunter College": { color:"#3F0157", icon:"building1", mono:"HC" },
+  "Queens College": { color:"#0033A0", icon:"building2", mono:"QC" },
+  "City College of New York": { color:"#6A4C93", icon:"tower", mono:"CC" },
+  "Baruch College": { color:"#002D72", icon:"shield", mono:"B" },
+  "Borough of Manhattan Community College": { color:"#FF6600", icon:"sun", mono:"BM" },
+  "Brooklyn College": { color:"#A20641", icon:"building3", mono:"BK" },
+  "John Jay College of Criminal Justice": { color:"#002D62", icon:"shield", mono:"JJ" }
+};
+function schoolVisual(schoolName){
+  return SCHOOL_VISUALS[schoolName] || { color:"#13223D", icon:"cap", mono:"" };
+}
+
+function buildHeroIllustration(){
+  const badgeMarkup = CAMPUS_BADGES.map(b=>{
+    const cx = b.x + b.w/2, cy = b.y + b.h/2;
+    const iconR = b.h/2 - 4;
+    const iconCx = b.x + b.h/2;
+    const textX = b.x + b.h + 6;
+    const iconScale = iconR / 16;
+    return `
+    <g transform="rotate(${b.rot} ${cx} ${cy})">
+      <rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="${b.h/2}" fill="#ffffff" stroke="${b.color}" stroke-width="1.5"/>
+      <circle cx="${iconCx}" cy="${cy}" r="${iconR}" fill="${b.color}"/>
+      <g transform="translate(${iconCx} ${cy}) scale(${iconScale.toFixed(2)})">
+        ${schoolIconGlyph(b.icon, b.color, b.mono)}
+      </g>
+      <text x="${textX}" y="${cy}" text-anchor="start" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="700" font-size="15" fill="var(--navy)">${b.short}</text>
+    </g>`;
+  }).join("");
+
+  return `
+<svg viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg">
+  <!-- diploma, framed, hanging on the wall behind the student -->
+  <g>
+    <rect x="322" y="66" width="116" height="78" rx="4" fill="#A9764F"/>
+    <rect x="330" y="74" width="100" height="62" rx="2" fill="#FBF4E4"/>
+    <line x1="340" y1="86" x2="420" y2="86" stroke="#D8CBA8" stroke-width="2.5"/>
+    <line x1="340" y1="95" x2="420" y2="95" stroke="#D8CBA8" stroke-width="2.5"/>
+    <line x1="340" y1="104" x2="400" y2="104" stroke="#D8CBA8" stroke-width="2.5"/>
+    <circle cx="380" cy="120" r="9" fill="var(--amber)"/>
+    <path d="M374 127 L370 140 L380 134 L390 140 L386 127 Z" fill="var(--amber)"/>
+  </g>
+
+  <!-- desk -->
+  <rect x="170" y="394" width="420" height="16" rx="6" fill="#C9A27C"/>
+  <rect x="170" y="386" width="420" height="10" rx="4" fill="#DAB78F"/>
+
+  <!-- book stack, left of laptop -->
+  <g>
+    <rect x="204" y="368" width="62" height="18" rx="2" fill="var(--teal)"/>
+    <rect x="208" y="350" width="54" height="18" rx="2" fill="var(--amber)"/>
+    <rect x="212" y="332" width="46" height="18" rx="2" fill="var(--blue)"/>
+  </g>
+
+  <!-- laptop -->
+  <path d="M290 384 L470 384 L460 396 L300 396 Z" fill="#AEB7C4"/>
+  <rect x="298" y="300" width="180" height="90" rx="6" fill="var(--navy)"/>
+  <rect x="308" y="308" width="160" height="74" rx="3" fill="#3A5A82"/>
+
+  <!-- person -->
+  <path d="M300 396 C300 340 340 312 380 312 C420 312 460 340 460 396 Z" fill="var(--navy)"/>
+  <path d="M356 320 L380 340 L404 320 L390 308 L370 308 Z" fill="#F5F7FA"/>
+  <path d="M332 240 C322 244 318 258 328 268" fill="none" stroke="#E8B08B" stroke-width="16" stroke-linecap="round"/>
+  <path d="M428 240 C438 244 442 258 432 268" fill="none" stroke="#E8B08B" stroke-width="16" stroke-linecap="round"/>
+  <ellipse cx="380" cy="240" rx="42" ry="44" fill="#E8B08B"/>
+
+  <!-- graduation cap, worn -->
+  <path d="M340 214 C340 196 358 186 380 186 C402 186 420 196 420 214 L420 218 C420 224 402 228 380 228 C358 228 340 224 340 218 Z" fill="#161F33"/>
+  <path d="M380 152 L458 190 L380 228 L302 190 Z" fill="var(--navy)"/>
+  <circle cx="380" cy="190" r="6" fill="var(--amber)"/>
+  <line x1="380" y1="190" x2="412" y2="212" stroke="var(--amber)" stroke-width="2.5"/>
+  <path d="M412 212 L408 226 L418 226 L422 214 Z" fill="var(--amber)"/>
+
+  <!-- arms to keyboard -->
+  <path d="M340 344 C322 360 318 378 328 388" fill="none" stroke="var(--navy)" stroke-width="22" stroke-linecap="round"/>
+  <path d="M420 344 C438 360 442 378 432 388" fill="none" stroke="var(--navy)" stroke-width="22" stroke-linecap="round"/>
+  <ellipse cx="356" cy="388" rx="14" ry="10" fill="#E8B08B"/>
+  <ellipse cx="404" cy="388" rx="14" ry="10" fill="#E8B08B"/>
+
+  ${badgeMarkup}
+</svg>`;
+}
+
+const CATEGORIES = [
+  { key:"Tutoring", nameKey:"cat_tutoring_name", descKey:"cat_tutoring_desc", desc:"Subject help, writing support, and study groups.", color:"var(--teal)", bg:"var(--teal-bg)",
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
+  { key:"Financial Aid", nameKey:"cat_finaid_name", descKey:"cat_finaid_desc", desc:"Grants, loans, scholarships, and emergency funds.", color:"var(--amber)", bg:"var(--amber-bg)",
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2.5 0 0 1 2.5-1.5h.5a2 2 0 1 1 0 4h-1a2 2 0 1 0 0 4h.5a2.5 2.5 0 0 0 2.5-1.5"/></svg>' },
+  { key:"Academic Advising", nameKey:"cat_advising_name", descKey:"cat_advising_desc", desc:"Course planning, degree audits, and major help.", color:"var(--blue-dark)", bg:"#E7EEF6",
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1 2.5 3 6 3s6-2 6-3v-5.5"/></svg>' },
+  { key:"Mental Health Support", nameKey:"cat_mentalhealth_name", descKey:"cat_mentalhealth_desc", desc:"Counseling, peer support, and stress relief.", color:"var(--rose)", bg:"var(--rose-bg)",
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>' },
+  { key:"Career Services", nameKey:"cat_career_name", descKey:"cat_career_desc", desc:"Resumes, interviews, internships, and job search.", color:"var(--plum)", bg:"var(--plum-bg)",
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>' },
+  { key:"Free Courses", nameKey:"cat_freecourses_name", descKey:"cat_freecourses_desc", desc:"Free classes and certifications around the five boroughs.", color:"var(--cyan)", bg:"var(--cyan-bg)",
+    icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>' }
+];
+
+/* Plain-language entry points for the homepage — students in a stressed
+   moment think in problems, not category names. Each maps to a real
+   category (and an optional search hint) so it routes into the exact
+   same data as the normal Needs flow. */
+const QUICK_PICKS = [
+  { labelKey:"qp1", label:"I can't afford tuition or books", category:"Financial Aid", search:"" },
+  { labelKey:"qp2", label:"I'm falling behind in a class", category:"Tutoring", search:"" },
+  { labelKey:"qp3", label:"I need someone to talk to", category:"Mental Health Support", search:"" },
+  { labelKey:"qp4", label:"I don't know what classes to take", category:"Academic Advising", search:"" },
+  { labelKey:"qp5", label:"I need a job or internship", category:"Career Services", search:"" },
+  { labelKey:"qp6", label:"📝 I need help with my resume", emoji:"📝 ", category:"Career Services", search:"" }
+];
+
+/* Schools students can select. Each school in SCHOOLS_WITH_DATA has at
+   least one verified, school-specific resource — but coverage across
+   the 5 categories varies by school; any gap falls back to a clearly
+   labeled General example (see getResourcePool). */
+const SCHOOLS = [
+  "LaGuardia Community College",
+  "Hunter College",
+  "Baruch College",
+  "Brooklyn College",
+  "City College of New York",
+  "New York City College of Technology",
+  "College of Staten Island",
+  "John Jay College of Criminal Justice",
+  "Lehman College",
+  "Medgar Evers College",
+  "Queens College",
+  "York College",
+  "Borough of Manhattan Community College",
+  "Bronx Community College",
+  "Guttman Community College",
+  "Hostos Community College",
+  "Kingsborough Community College",
+  "Queensborough Community College",
+  "My school isn't listed"
+];
+const SCHOOLS_WITH_DATA = new Set(SCHOOLS.filter(s => s !== "My school isn't listed"));
+
+/* ============ App State ============ */
+const I18N = {
+  "en": {
+    "top_directory": "Student Support Directory",
+    "top_free": "Free & confidential resources",
+    "brand_sub": "Student Resource Directory",
+    "step_profile": "Profile",
+    "step_needs": "Support needs",
+    "step_resources": "Resources",
+    "hero_title1": "The Journey to",
+    "hero_title2": "Success",
+    "hero_subtitle": "Find the college resources and support you need in one place.",
+    "btn_get_started": "Get Started",
+    "hero_caption": "Built for students across CUNY campuses — more schools added regularly.",
+    "feat1_title": "Free & confidential",
+    "feat1_desc": "Every resource listed is available to you at no cost, with privacy respected.",
+    "feat2_title": "Matched to your needs",
+    "feat2_desc": "Tell us what you're looking for and we'll point you to the right office.",
+    "feat3_title": "One directory",
+    "feat3_desc": "Search and filter across tutoring, aid, advising, wellness, and careers.",
+    "profile_step": "Step 1 of 3",
+    "profile_title": "Tell us a little about you",
+    "profile_intro": "School is what drives your results. Nothing here is shared outside this app.",
+    "label_school": "School",
+    "placeholder_select_school": "Select your school",
+    "error_select_school": "Select your school.",
+    "label_major": "Major",
+    "optional": "(optional)",
+    "placeholder_major": "e.g. Biology, Undecided",
+    "label_year": "Year in college",
+    "placeholder_select_year": "Select your year",
+    "year1": "First year",
+    "year2": "Second year",
+    "year3": "Third year",
+    "year4": "Fourth year",
+    "year5": "Fifth year+",
+    "year6": "Graduate student",
+    "btn_back": "Back",
+    "btn_continue": "Continue",
+    "progress_filled": "{n} of 3 filled in",
+    "progress_all_set": "All set!",
+    "preview_verified": "{n} of 5 resource types verified",
+    "preview_general": "General examples shown until we verify this campus",
+    "needs_step": "Step 2 of 3",
+    "needs_title": "What do you need help with?",
+    "btn_back_profile": "Back to profile",
+    "quickpick_heading": "Not sure which category fits? Tell us what's going on:",
+    "qp1": "I can't afford tuition or books",
+    "qp2": "I'm falling behind in a class",
+    "qp3": "I need someone to talk to",
+    "qp4": "I don't know what classes to take",
+    "qp5": "I need a job or internship",
+    "qp6": "I need help with my resume",
+    "cat_tutoring_name": "Tutoring",
+    "cat_tutoring_desc": "Subject help, writing support, and study groups.",
+    "cat_finaid_name": "Financial Aid",
+    "cat_finaid_desc": "Grants, loans, scholarships, and emergency funds.",
+    "cat_advising_name": "Academic Advising",
+    "cat_advising_desc": "Course planning, degree audits, and major help.",
+    "cat_mentalhealth_name": "Mental Health Support",
+    "cat_mentalhealth_desc": "Counseling, peer support, and stress relief.",
+    "cat_career_name": "Career Services",
+    "cat_career_desc": "Resumes, interviews, internships, and job search.",
+    "cat_freecourses_name": "Free Courses",
+    "cat_freecourses_desc": "Free classes and certifications around the five boroughs.",
+    "tag_verified": "Verified for your school",
+    "tag_general": "General examples",
+    "tag_citywide": "Citywide",
+    "resource_one": "resource",
+    "resource_other": "resources",
+    "results_step": "Step 3 of 3",
+    "results_showing": "Showing results for {school}.",
+    "results_help": "Search or filter to find the right fit, then select a resource to see full details.",
+    "btn_back_needs": "Back to needs",
+    "search_placeholder": "Search resources by name or keyword…",
+    "filter_all": "All categories",
+    "edit_link": "Edit",
+    "found_text_one": "{n} resource found",
+    "found_text_other": "{n} resources found",
+    "empty_title": "No resources match yet",
+    "empty_desc": "Try a different search term or choose “All categories.”",
+    "notice_this_category": "this category",
+    "crisis_text": "If you're in crisis or need to talk to someone right now, you don't have to wait for an appointment — call or text 988 (Suicide & Crisis Lifeline), free and confidential, 24/7.",
+    "badge_citywide_full": "Citywide — open to any school",
+    "detail_back": "Back to results",
+    "detail_eligible": "Who's eligible",
+    "detail_access": "How to access it",
+    "detail_contact": "Contact",
+    "detail_location": "Location",
+    "detail_website": "Website",
+    "btn_appointment": "Book an Appointment",
+    "btn_see_all": "See all resources",
+    "detail_lang_note": "This listing is shown in English, the language these offices operate in. Many offer multilingual staff or interpretation — ask when you contact them.",
+    "footer_crisis_prefix": "In crisis or need to talk to someone right now? Call or text",
+    "footer_crisis_suffix": "(Suicide & Crisis Lifeline) — free, confidential, available 24/7.",
+    "footer_tagline": "Helping students find the right support, faster.",
+    "footer_sample": "Sample resource data shown for testing purposes.",
+    "lang_name_en": "English",
+    "lang_name_es": "Español",
+    "lang_name_zh": "中文",
+    "lang_name_ja": "日本語",
+    "lang_name_bo": "བོད་ཡིག",
+    "lang_name_hi": "हिन्दी",
+    "lang_name_ar": "العربية",
+    "results_title_cat": "Resources for {cat}",
+    "results_title_all": "Resources for you",
+    "notice_text_one": "We don't have a verified listing for {cat} at {school} yet, so the resource marked General example below is a placeholder to show what's typical — not your school's real contact info.",
+    "notice_text_other": "We don't have a verified listing for {cat} at {school} yet, so the resources marked General example below are placeholders to show what's typical — not your school's real contact info."
+  },
+  "es": {
+    "top_directory": "Directorio de Apoyo Estudiantil",
+    "top_free": "Recursos gratuitos y confidenciales",
+    "brand_sub": "Directorio de Recursos Estudiantiles",
+    "step_profile": "Perfil",
+    "step_needs": "Necesidades de apoyo",
+    "step_resources": "Recursos",
+    "hero_title1": "El Camino hacia el",
+    "hero_title2": "Éxito",
+    "hero_subtitle": "Encuentra los recursos y el apoyo universitario que necesitas en un solo lugar.",
+    "btn_get_started": "Comenzar",
+    "hero_caption": "Creado para estudiantes de los campus de CUNY — se agregan más escuelas regularmente.",
+    "feat1_title": "Gratis y confidencial",
+    "feat1_desc": "Cada recurso listado está disponible sin costo alguno, respetando tu privacidad.",
+    "feat2_title": "Adaptado a tus necesidades",
+    "feat2_desc": "Dinos qué estás buscando y te dirigiremos a la oficina correcta.",
+    "feat3_title": "Un solo directorio",
+    "feat3_desc": "Busca y filtra entre tutorías, ayuda financiera, asesoría, bienestar y empleo.",
+    "profile_step": "Paso 1 de 3",
+    "profile_title": "Cuéntanos un poco sobre ti",
+    "profile_intro": "Tu escuela es lo que determina tus resultados. Nada aquí se comparte fuera de esta aplicación.",
+    "label_school": "Escuela",
+    "placeholder_select_school": "Selecciona tu escuela",
+    "error_select_school": "Selecciona tu escuela.",
+    "label_major": "Especialización",
+    "optional": "(opcional)",
+    "placeholder_major": "ej. Biología, Sin decidir",
+    "label_year": "Año en la universidad",
+    "placeholder_select_year": "Selecciona tu año",
+    "year1": "Primer año",
+    "year2": "Segundo año",
+    "year3": "Tercer año",
+    "year4": "Cuarto año",
+    "year5": "Quinto año o más",
+    "year6": "Estudiante de posgrado",
+    "btn_back": "Atrás",
+    "btn_continue": "Continuar",
+    "progress_filled": "{n} de 3 completados",
+    "progress_all_set": "¡Todo listo!",
+    "preview_verified": "{n} de 5 tipos de recursos verificados",
+    "preview_general": "Se muestran ejemplos generales hasta verificar este campus",
+    "needs_step": "Paso 2 de 3",
+    "needs_title": "¿Con qué necesitas ayuda?",
+    "btn_back_profile": "Volver al perfil",
+    "quickpick_heading": "¿No sabes qué categoría elegir? Cuéntanos qué está pasando:",
+    "qp1": "No puedo pagar la matrícula o los libros",
+    "qp2": "Me estoy atrasando en una clase",
+    "qp3": "Necesito hablar con alguien",
+    "qp4": "No sé qué clases tomar",
+    "qp5": "Necesito un trabajo o pasantía",
+    "qp6": "Necesito ayuda con mi currículum",
+    "cat_tutoring_name": "Tutorías",
+    "cat_tutoring_desc": "Ayuda con materias, apoyo de escritura y grupos de estudio.",
+    "cat_finaid_name": "Ayuda Financiera",
+    "cat_finaid_desc": "Becas, préstamos, subvenciones y fondos de emergencia.",
+    "cat_advising_name": "Asesoría Académica",
+    "cat_advising_desc": "Planificación de cursos, revisión de créditos y ayuda con tu especialización.",
+    "cat_mentalhealth_name": "Apoyo de Salud Mental",
+    "cat_mentalhealth_desc": "Asesoría psicológica, apoyo entre pares y alivio del estrés.",
+    "cat_career_name": "Servicios Profesionales",
+    "cat_career_desc": "Currículums, entrevistas, pasantías y búsqueda de empleo.",
+    "cat_freecourses_name": "Cursos Gratuitos",
+    "cat_freecourses_desc": "Clases y certificaciones gratuitas en los cinco condados.",
+    "tag_verified": "Verificado para tu escuela",
+    "tag_general": "Ejemplos generales",
+    "tag_citywide": "En toda la ciudad",
+    "resource_one": "recurso",
+    "resource_other": "recursos",
+    "results_step": "Paso 3 de 3",
+    "results_showing": "Mostrando resultados para {school}.",
+    "results_help": "Busca o filtra para encontrar lo que necesitas, luego selecciona un recurso para ver todos los detalles.",
+    "btn_back_needs": "Volver a necesidades",
+    "search_placeholder": "Buscar recursos por nombre o palabra clave…",
+    "filter_all": "Todas las categorías",
+    "edit_link": "Editar",
+    "found_text_one": "{n} recurso encontrado",
+    "found_text_other": "{n} recursos encontrados",
+    "empty_title": "Aún no hay coincidencias",
+    "empty_desc": "Prueba otro término de búsqueda o elige “Todas las categorías.”",
+    "notice_this_category": "esta categoría",
+    "crisis_text": "Si estás en crisis o necesitas hablar con alguien ahora mismo, no tienes que esperar una cita — llama o envía un mensaje de texto al 988 (Línea de Crisis y Suicidio), gratis y confidencial, las 24 horas.",
+    "badge_citywide_full": "En toda la ciudad — disponible para cualquier escuela",
+    "detail_back": "Volver a resultados",
+    "detail_eligible": "Quién es elegible",
+    "detail_access": "Cómo acceder",
+    "detail_contact": "Contacto",
+    "detail_location": "Ubicación",
+    "detail_website": "Sitio web",
+    "btn_appointment": "Reservar una Cita",
+    "btn_see_all": "Ver todos los recursos",
+    "detail_lang_note": "Esta información se muestra en inglés, el idioma en que operan estas oficinas. Muchas cuentan con personal multilingüe o servicios de interpretación — pregunta al contactarlas.",
+    "footer_crisis_prefix": "¿Estás en crisis o necesitas hablar con alguien ahora mismo? Llama o envía un mensaje de texto al",
+    "footer_crisis_suffix": "(Línea de Crisis y Suicidio) — gratis, confidencial, disponible las 24 horas.",
+    "footer_tagline": "Ayudando a los estudiantes a encontrar el apoyo correcto, más rápido.",
+    "footer_sample": "Se muestran datos de recursos de ejemplo con fines de prueba.",
+    "lang_name_en": "English",
+    "lang_name_es": "Español",
+    "lang_name_zh": "中文",
+    "lang_name_ja": "日本語",
+    "lang_name_bo": "བོད་ཡིག",
+    "lang_name_hi": "हिन्दी",
+    "lang_name_ar": "العربية",
+    "results_title_cat": "Recursos de {cat}",
+    "results_title_all": "Recursos para ti",
+    "notice_text_one": "Todavía no tenemos un listado verificado de {cat} en {school}, así que el recurso marcado como Ejemplo general abajo es solo un ejemplo típico — no es la información real de contacto de tu escuela.",
+    "notice_text_other": "Todavía no tenemos un listado verificado de {cat} en {school}, así que los recursos marcados como Ejemplo general abajo son solo ejemplos típicos — no es la información real de contacto de tu escuela."
+  }
+};
+const LANG_META = {
+  en: { name:"English", dir:"ltr", font:"'Inter', sans-serif" },
+  es: { name:"Español", dir:"ltr", font:"'Inter', sans-serif" }
+};
+
+/* Translation lookup with {placeholder} interpolation and English fallback
+   for any key that (should never happen, but) is missing in a language. */
+function t(key, vars){
+  const dict = I18N[state.lang] || I18N.en;
+  let str = dict[key] !== undefined ? dict[key] : (I18N.en[key] !== undefined ? I18N.en[key] : key);
+  if(vars){
+    Object.keys(vars).forEach(k=>{
+      str = str.split("{"+k+"}").join(vars[k]);
+    });
+  }
+  return str;
+}
+
+function setLang(code){
+  state.lang = code;
+  const meta = LANG_META[code] || LANG_META.en;
+  document.documentElement.setAttribute("dir", meta.dir);
+  document.documentElement.setAttribute("lang", code);
+  document.body.style.fontFamily = meta.font;
+  render();
+}
+
+
+let state = {
+  page: "welcome", // welcome | profile | needs | results | detail
+  profile: { school:"", major:"", year:"" },
+  selectedCategory: null,
+  selectedResourceId: null,
+  search: "",
+  filterCategory: "All",
+  pendingIntent: null, // { category, search } set by a homepage quick-pick
+  lang: "en"
+};
+
+const STAGES = ["welcome","profile","needs","results"];
+function stageIndex(page){
+  if(page==="detail") return 3;
+  return STAGES.indexOf(page);
+}
+
+function go(page, extra){
+  state.page = page;
+  if(extra) Object.assign(state, extra);
+  render();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ============ Icon helpers ============ */
+const ICONS = {
+  arrowRight:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',
+  mapPin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5" fill="currentColor"/></svg>',
+  list:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>',
+  calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>',
+  building:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"/></svg>',
+  book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+  checkCircle:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>'
+};
+
+/* ============ Renderers ============ */
+function render(){
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+  app.appendChild(renderShell());
+}
+
+function renderShell(){
+  const wrap = document.createElement("div");
+  wrap.style.display = "flex";
+  wrap.style.flexDirection = "column";
+  wrap.style.minHeight = "100vh";
+  wrap.appendChild(renderTopbar());
+  wrap.appendChild(renderHeader());
+
+  const main = document.createElement("main");
+  const pageMap = { welcome: renderWelcome, profile: renderProfile, needs: renderNeeds, results: renderResults, detail: renderDetail };
+  main.appendChild(pageMap[state.page]());
+  wrap.appendChild(main);
+  wrap.appendChild(renderFooter());
+  return wrap;
+}
+
+function renderTopbar(){
+  const bar = document.createElement("div");
+  bar.className = "topbar";
+  bar.innerHTML = `<div class="topbar-inner"><span>${t("top_directory")}</span><span>${t("top_free")}</span></div>`;
+  return bar;
+}
+
+function renderHeader(){
+  const header = document.createElement("div");
+  header.className = "app-header";
+
+  const inner = document.createElement("div");
+  inner.className = "header-inner";
+
+  const brand = document.createElement("button");
+  brand.style.cssText = "background:none;border:none;display:flex;align-items:center;gap:12px;padding:0;";
+  brand.className = "brand";
+  brand.innerHTML = `<div class="brand-mark">JS</div><div class="brand-text"><span class="brand-name">The Journey to Success</span><span class="brand-sub">${t("brand_sub")}</span></div>`;
+  brand.addEventListener("click", ()=>go("welcome"));
+  inner.appendChild(brand);
+
+  const rightGroup = document.createElement("div");
+  rightGroup.className = "header-right-group";
+
+  if(state.page !== "welcome"){
+    const nav = document.createElement("div");
+    nav.className = "steps-nav";
+    const labels = [t("step_profile"), t("step_needs"), t("step_resources")];
+    const targets = ["profile","needs","results"];
+    const idx = stageIndex(state.page); // 1,2,3 correspond to profile/needs/results
+    labels.forEach((label,i)=>{
+      const stepIdx = i+1;
+      if(i>0){
+        const div = document.createElement("div");
+        div.className = "divider";
+        nav.appendChild(div);
+      }
+      const btn = document.createElement("button");
+      // Profile is always reachable. Support needs and Resources become
+      // reachable as soon as a school is on file — not only after the
+      // student has physically clicked through them in order — so
+      // "Resources" can jump straight to every resource at their school.
+      const reachable = stepIdx === 1 || !!state.profile.school;
+      btn.className = "reachable";
+      btn.disabled = !reachable;
+      const numClass = stepIdx < idx ? "done" : (stepIdx === idx ? "active" : "");
+      btn.innerHTML = `<span class="step-num ${numClass}">${stepIdx < idx ? "&#10003;" : stepIdx}</span><span class="step-label ${stepIdx===idx?'active':''}">${label}</span>`;
+      if(reachable){
+        btn.addEventListener("click", ()=>{
+          if(stepIdx === 3 && idx < 3){
+            // Jumping to Resources without having picked a category yet —
+            // show every resource for their school instead of nothing.
+            go("results", { filterCategory: "All", search: "" });
+          } else {
+            go(targets[i]);
+          }
+        });
+      }
+      nav.appendChild(btn);
+    });
+    rightGroup.appendChild(nav);
+  }
+
+  const langSelect = document.createElement("select");
+  langSelect.className = "lang-select";
+  langSelect.setAttribute("aria-label", "Language");
+  Object.keys(LANG_META).forEach(code=>{
+    const opt = document.createElement("option");
+    opt.value = code;
+    opt.textContent = LANG_META[code].name;
+    if(code === state.lang) opt.selected = true;
+    langSelect.appendChild(opt);
+  });
+  langSelect.addEventListener("change", (e)=> setLang(e.target.value));
+  rightGroup.appendChild(langSelect);
+
+  inner.appendChild(rightGroup);
+  header.appendChild(inner);
+  return header;
+}
+
+function renderFooter(){
+  const f = document.createElement("footer");
+  f.className = "app-footer";
+  f.innerHTML = `
+    <div class="footer-crisis">
+      ${t("footer_crisis_prefix")} <a href="tel:988">988</a> ${t("footer_crisis_suffix")}
+    </div>
+    <div class="footer-inner">
+      <div class="brand-text">
+        <span class="brand-name">The Journey to Success</span>
+        <span class="brand-sub">${t("footer_tagline")}</span>
+      </div>
+      <span class="fine-print">${t("footer_sample")}</span>
+    </div>
+  `;
+  return f;
+}
+
+/* ---- Welcome ---- */
+function renderWelcome(){
+  const el = document.createElement("div");
+  el.innerHTML = `
+    <div class="hero">
+      <div class="hero-inner">
+        <h1>${t("hero_title1")} <em>${t("hero_title2")}</em></h1>
+        <p class="hero-subtitle">${t("hero_subtitle")}</p>
+        <div class="campus-illustration">${buildHeroIllustration()}</div>
+        <button class="btn-primary" id="getStartedBtn">${t("btn_get_started")} ${ICONS.arrowRight}</button>
+        <p class="campus-caption">${t("hero_caption")}</p>
+      </div>
+    </div>
+    <div class="feature-strip">
+      <div class="feature-item">
+        <div class="fi-icon">${ICONS.shield}</div>
+        <div><h4>${t("feat1_title")}</h4><p>${t("feat1_desc")}</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">${ICONS.target}</div>
+        <div><h4>${t("feat2_title")}</h4><p>${t("feat2_desc")}</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="fi-icon">${ICONS.list}</div>
+        <div><h4>${t("feat3_title")}</h4><p>${t("feat3_desc")}</p></div>
+      </div>
+    </div>
+  `;
+  el.querySelector("#getStartedBtn").addEventListener("click", ()=>go("profile"));
+  return el;
+}
+
+/* ---- Profile ---- */
+function renderProfile(){
+  const el = document.createElement("div");
+  el.className = "page";
+  const filledCount = ["school","major","year"].filter(k => state.profile[k]).length;
+  const yearKeys = ["year1","year2","year3","year4","year5","year6"];
+  el.innerHTML = `
+    <div class="page-head">
+      <span class="eyebrow">${t("profile_step")}</span>
+      <h2>${t("profile_title")}</h2>
+      <p>${t("profile_intro")}</p>
+    </div>
+    <div class="form-card">
+      <div class="form-progress">
+        <div class="form-progress-dots">
+          <span class="progress-dot" id="dotSchool"></span>
+          <span class="progress-dot" id="dotMajor"></span>
+          <span class="progress-dot" id="dotYear"></span>
+        </div>
+        <span class="form-progress-label" id="progressLabel">${t("progress_filled",{n:filledCount})}</span>
+      </div>
+      <form id="profileForm" novalidate>
+        <div class="field">
+          <label for="school">${ICONS.building} ${t("label_school")}</label>
+          <select id="school">
+            <option value="" ${state.profile.school===""?"selected":""}>${t("placeholder_select_school")}</option>
+            ${SCHOOLS.map(s=>`<option value="${s}" ${state.profile.school===s?"selected":""}>${s}</option>`).join("")}
+          </select>
+          <div class="field-error-msg" id="schoolError">${t("error_select_school")}</div>
+          <div class="school-preview" id="schoolPreview"></div>
+        </div>
+        <div class="field">
+          <label for="major">${ICONS.book} ${t("label_major")} <span class="hint">${t("optional")}</span></label>
+          <input id="major" type="text" placeholder="${t("placeholder_major")}" value="${escapeHtml(state.profile.major)}">
+        </div>
+        <div class="field">
+          <label for="year">${ICONS.calendar} ${t("label_year")} <span class="hint">${t("optional")}</span></label>
+          <select id="year">
+            <option value="" ${state.profile.year===""?"selected":""}>${t("placeholder_select_year")}</option>
+            ${["First year","Second year","Third year","Fourth year","Fifth year+","Graduate student"].map((y,i)=>
+              `<option value="${y}" ${state.profile.year===y?"selected":""}>${t(yearKeys[i])}</option>`).join("")}
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn-text" id="skipBtn">${ICONS.back} ${t("btn_back")}</button>
+          <button type="button" class="btn-primary" id="continueBtn">${t("btn_continue")} ${ICONS.arrowRight}</button>
+        </div>
+      </form>
+    </div>
+  `;
+  el.querySelector("#skipBtn").addEventListener("click", ()=>go("welcome"));
+
+  const schoolInput = el.querySelector("#school");
+  const majorInput = el.querySelector("#major");
+  const yearInput = el.querySelector("#year");
+  const dotSchool = el.querySelector("#dotSchool");
+  const dotMajor = el.querySelector("#dotMajor");
+  const dotYear = el.querySelector("#dotYear");
+  const progressLabel = el.querySelector("#progressLabel");
+  const schoolPreview = el.querySelector("#schoolPreview");
+
+  function updateProgress(){
+    const filled = [schoolInput.value, majorInput.value, yearInput.value].filter(v => v.trim() !== "").length;
+    dotSchool.classList.toggle("filled", schoolInput.value.trim() !== "");
+    dotMajor.classList.toggle("filled", majorInput.value.trim() !== "");
+    dotYear.classList.toggle("filled", yearInput.value.trim() !== "");
+    progressLabel.textContent = filled === 3 ? t("progress_all_set") : t("progress_filled",{n:filled});
+  }
+
+  function updateSchoolPreview(){
+    const school = schoolInput.value;
+    if(!school || school === "My school isn't listed"){
+      schoolPreview.classList.remove("show");
+      schoolPreview.innerHTML = "";
+      return;
+    }
+    const v = schoolVisual(school);
+    const verifiedCount = CATEGORIES.filter(c => c.key !== "Free Courses" && schoolHasVerifiedCategory(school, c.key)).length;
+    const statusText = verifiedCount > 0
+      ? `${ICONS.checkCircle} ${t("preview_verified",{n:verifiedCount})}`
+      : t("preview_general");
+    schoolPreview.innerHTML = `
+      <svg viewBox="-16 -16 32 32" class="school-preview-icon"><circle cx="0" cy="0" r="15" fill="${v.color}"/>${schoolIconGlyph(v.icon, v.color, v.mono)}</svg>
+      <div class="school-preview-text">
+        <div class="school-preview-name">${escapeHtml(school)}</div>
+        <div class="school-preview-status ${verifiedCount>0?'verified':''}">${statusText}</div>
+      </div>`;
+    schoolPreview.classList.add("show");
+  }
+
+  schoolInput.addEventListener("change", ()=>{ updateSchoolPreview(); updateProgress(); });
+  majorInput.addEventListener("input", updateProgress);
+  yearInput.addEventListener("change", updateProgress);
+  updateSchoolPreview();
+  updateProgress();
+
+  function submitProfile(){
+    const school = schoolInput.value.trim();
+    const major = majorInput.value.trim();
+    const year = yearInput.value;
+
+    const isValid = school !== "";
+    schoolInput.classList.toggle("field-error", !isValid);
+    el.querySelector("#schoolError").classList.toggle("show", !isValid);
+    if(!isValid){
+      schoolInput.focus();
+      return;
+    }
+
+    state.profile.school = school;
+    state.profile.major = major;
+    state.profile.year = year;
+
+    if(state.pendingIntent){
+      const intent = state.pendingIntent;
+      state.pendingIntent = null;
+      go("results", { selectedCategory: intent.category, filterCategory: intent.category, search: intent.search });
+    } else {
+      go("needs");
+    }
+  }
+
+  // Bind directly to the button click (not form "submit") and also support
+  // pressing Enter in a text field, so this works regardless of how the
+  // page is embedded.
+  el.querySelector("#continueBtn").addEventListener("click", submitProfile);
+  el.querySelector("#profileForm").addEventListener("keydown", (e)=>{
+    if(e.key === "Enter" && e.target.tagName !== "SELECT"){
+      e.preventDefault();
+      submitProfile();
+    }
+  });
+  return el;
+}
+
+/* ---- Needs ---- */
+function schoolHasVerifiedCategory(school, categoryKey){
+  return RESOURCES.some(r => r.school === school && r.category === categoryKey);
+}
+
+function renderNeeds(){
+  const el = document.createElement("div");
+  el.className = "page";
+  const school = state.profile.school;
+  el.innerHTML = `
+    <div class="back-row"><button class="btn-text" id="backBtn">${ICONS.back} ${t("btn_back_profile")}</button></div>
+    <div class="page-head">
+      <span class="eyebrow">${t("needs_step")}</span>
+      <h2>${t("needs_title")}</h2>
+    </div>
+    <div class="quickpick-section">
+      <p class="quickpick-heading">${t("quickpick_heading")}</p>
+      <div class="quickpick-row" id="quickpickRow"></div>
+    </div>
+    <div class="category-grid" id="catGrid"></div>
+  `;
+  el.querySelector("#backBtn").addEventListener("click", ()=>go("profile"));
+
+  const qpRow = el.querySelector("#quickpickRow");
+  QUICK_PICKS.forEach(qp=>{
+    const cat = CATEGORIES.find(c => c.key === qp.category);
+    const btn = document.createElement("button");
+    btn.className = "quickpick-btn";
+    btn.style.setProperty("--qp-color", cat.color);
+    btn.style.setProperty("--qp-bg", cat.bg);
+    btn.innerHTML = `<span class="qp-icon">${cat.icon}</span><span>${qp.emoji||""}${t(qp.labelKey)}</span>`;
+    btn.addEventListener("click", ()=>{
+      go("results", { selectedCategory: qp.category, filterCategory: qp.category, search: qp.search });
+    });
+    qpRow.appendChild(btn);
+  });
+
+  const grid = el.querySelector("#catGrid");
+  CATEGORIES.forEach(cat=>{
+    const count = RESOURCES.filter(r=>r.category===cat.key).length;
+    const card = document.createElement("button");
+    card.className = "cat-card";
+    card.style.setProperty("--cat-color", cat.color);
+    card.style.setProperty("--cat-color-bg", cat.bg);
+    let coverageTag = "";
+    if(cat.key === "Free Courses"){
+      coverageTag = `<span class="coverage-tag citywide">${t("tag_citywide")}</span>`;
+    } else if(school){
+      coverageTag = schoolHasVerifiedCategory(school, cat.key)
+        ? `<span class="coverage-tag verified">&#10003; ${t("tag_verified")}</span>`
+        : `<span class="coverage-tag general">${t("tag_general")}</span>`;
+    }
+    card.innerHTML = `
+      <div class="cat-icon" style="background:#fff;color:${cat.color}">${cat.icon}</div>
+      <h3>${t(cat.nameKey)}</h3>
+      <p>${t(cat.descKey)}</p>
+      ${coverageTag}
+      <span class="cat-count">${count} ${t(count!==1?"resource_other":"resource_one")}</span>
+    `;
+    card.addEventListener("click", ()=>{
+      let prefillSearch = "";
+      if(cat.key === "Tutoring" && state.profile.major && state.profile.major.toLowerCase() !== "undecided"){
+        const q = state.profile.major.trim().toLowerCase();
+        const wouldMatch = getResourcePool().some(r =>
+          r.category === "Tutoring" &&
+          (r.name.toLowerCase().includes(q) || r.offers.toLowerCase().includes(q) || r.location.toLowerCase().includes(q))
+        );
+        // Only pre-fill if the major actually matches something here — a
+        // narrow subject that doesn't match this school's tutoring center
+        // names should never make results look empty.
+        if(wouldMatch) prefillSearch = state.profile.major;
+      }
+      go("results", { selectedCategory: cat.key, filterCategory: cat.key, search: prefillSearch });
+    });
+    grid.appendChild(card);
+  });
+  return el;
+}
+
+/* ---- Results ---- */
+function resultsTitleText(){
+  if(state.filterCategory === "All") return t("results_title_all");
+  const cat = CATEGORIES.find(c => c.key === state.filterCategory);
+  return t("results_title_cat", { cat: cat ? t(cat.nameKey) : state.filterCategory });
+}
+
+function renderResults(){
+  const el = document.createElement("div");
+  el.className = "page page-wide";
+
+  el.innerHTML = `
+    <div class="back-row"><button class="btn-text" id="backBtn">${ICONS.back} ${t("btn_back_needs")}</button></div>
+    <div class="page-head">
+      <span class="eyebrow">${t("results_step")}</span>
+      <h2>${resultsTitleText()}</h2>
+      <p>${state.profile.school ? `${t("results_showing",{school:`<strong>${escapeHtml(state.profile.school)}</strong>`})} ` : ""}${t("results_help")}</p>
+      <div class="profile-summary">
+        <span>${escapeHtml(state.profile.school)}</span>${state.profile.major ? ` <span aria-hidden="true">·</span> <span>${escapeHtml(state.profile.major)}</span>` : ""}${state.profile.year ? ` <span aria-hidden="true">·</span> <span>${escapeHtml(state.profile.year)}</span>` : ""}
+        <button type="button" class="btn-text" id="editProfileBtn">${t("edit_link")}</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="search-box">
+        ${ICONS.search}
+        <input id="searchInput" type="text" placeholder="${t("search_placeholder")}" value="${escapeHtml(state.search)}">
+      </div>
+      <select class="filter-select" id="categoryFilter">
+        <option value="All" ${state.filterCategory==="All"?"selected":""}>${t("filter_all")}</option>
+        ${CATEGORIES.map(c=>`<option value="${c.key}" ${state.filterCategory===c.key?"selected":""}>${t(c.nameKey)}</option>`).join("")}
+      </select>
+    </div>
+    <div id="resultsBody"></div>
+  `;
+
+  el.querySelector("#editProfileBtn").addEventListener("click", ()=>go("profile"));
+  el.querySelector("#backBtn").addEventListener("click", ()=>go("needs"));
+  el.querySelector("#searchInput").addEventListener("input",(e)=>{
+    state.search = e.target.value;
+    renderResultsBody(el.querySelector("#resultsBody"));
+  });
+  el.querySelector("#categoryFilter").addEventListener("change",(e)=>{
+    state.filterCategory = e.target.value;
+    el.querySelector("h2").textContent = resultsTitleText();
+    renderResultsBody(el.querySelector("#resultsBody"));
+  });
+
+  renderResultsBody(el.querySelector("#resultsBody"));
+  return el;
+}
+
+function getResourcePool(){
+  const school = state.profile.school;
+  const bySchool = RESOURCES.filter(r => r.school === school);
+  const schoolHasCategory = new Set(bySchool.map(r => r.category));
+  const fallback = RESOURCES.filter(r => r.school === "General" && !schoolHasCategory.has(r.category));
+  const cityWide = RESOURCES.filter(r => r.school === "All");
+  return [...bySchool, ...fallback, ...cityWide];
+}
+
+function getFilteredResources(){
+  const q = state.search.trim().toLowerCase();
+  return getResourcePool().filter(r=>{
+    const matchesCategory = state.filterCategory === "All" || r.category === state.filterCategory;
+    const matchesSearch = !q || r.name.toLowerCase().includes(q) || r.offers.toLowerCase().includes(q) || r.category.toLowerCase().includes(q) || r.location.toLowerCase().includes(q);
+    return matchesCategory && matchesSearch;
+  });
+}
+
+function renderResultsBody(container){
+  const results = getFilteredResources();
+  container.innerHTML = "";
+
+  if(state.filterCategory === "Mental Health Support" || state.filterCategory === "All"){
+    const crisis = document.createElement("div");
+    crisis.className = "crisis-banner";
+    crisis.innerHTML = `${ICONS.shield}<span>${t("crisis_text").replace("988", '<a href="tel:988">988</a>')}</span>`;
+    container.appendChild(crisis);
+  }
+
+  const school = state.profile.school;
+  const showingFallback = school && results.some(r => r.school === "General");
+  if(showingFallback){
+    const banner = document.createElement("div");
+    banner.className = "notice-banner";
+    const catObj = CATEGORIES.find(c => c.key === state.filterCategory);
+    const categoryPhrase = (state.filterCategory === "All" || state.filterCategory === "Free Courses")
+      ? t("notice_this_category")
+      : `<strong>${escapeHtml(catObj ? t(catObj.nameKey) : state.filterCategory)}</strong>`;
+    const isPlural = results.filter(r=>r.school==="General").length !== 1;
+    banner.innerHTML = t(isPlural ? "notice_text_other" : "notice_text_one", {
+      cat: categoryPhrase,
+      school: `<strong>${escapeHtml(school)}</strong>`
+    });
+    container.appendChild(banner);
+  }
+
+  const countEl = document.createElement("div");
+  countEl.className = "result-count";
+  countEl.textContent = t(results.length!==1?"found_text_other":"found_text_one", {n: results.length});
+  container.appendChild(countEl);
+
+  if(results.length === 0){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.innerHTML = `<h3>${t("empty_title")}</h3><p>${t("empty_desc")}</p>`;
+    container.appendChild(empty);
+    return;
+  }
+
+  const list = document.createElement("div");
+  list.className = "result-list";
+  results.forEach(r=>{
+    const cat = CATEGORIES.find(c=>c.key===r.category);
+    const card = document.createElement("button");
+    card.className = "result-card";
+    card.innerHTML = `
+      <div class="result-main">
+        <span class="result-tag" style="--tag-color:${cat.color};--tag-bg:${cat.bg}">${t(cat.nameKey)}</span>
+        ${schoolBadge(r)}
+        <h3>${r.name}</h3>
+        <p>${r.offers}</p>
+      </div>
+      ${ICONS.arrowRight.replace("<svg ", '<svg class="result-arrow" ')}
+    `;
+    card.addEventListener("click", ()=>go("detail", { selectedResourceId: r.id }));
+    list.appendChild(card);
+  });
+  container.appendChild(list);
+}
+
+/* ---- Detail ---- */
+function renderDetail(){
+  const r = RESOURCES.find(x=>x.id===state.selectedResourceId) || RESOURCES[0];
+  const cat = CATEGORIES.find(c=>c.key===r.category);
+  const el = document.createElement("div");
+  el.className = "page";
+  el.innerHTML = `
+    <div class="back-row"><button class="btn-text" id="backBtn">${ICONS.back} ${t("detail_back")}</button></div>
+    <div class="detail-card">
+      <span class="result-tag detail-tag" style="--tag-color:${cat.color};--tag-bg:${cat.bg}">${t(cat.nameKey)}</span>${schoolBadge(r)}
+      <h2>${r.name}</h2>
+      <p class="detail-offers">${r.offers}</p>
+      <div class="detail-grid">
+        <div class="detail-item">
+          <span class="eyebrow">${t("detail_eligible")}</span>
+          <p>${r.eligibility}</p>
+        </div>
+        <div class="detail-item">
+          <span class="eyebrow">${t("detail_access")}</span>
+          <p>${r.access}</p>
+        </div>
+        <div class="detail-item">
+          <span class="eyebrow">${t("detail_contact")}</span>
+          <p>${r.contact}</p>
+        </div>
+        <div class="detail-item">
+          <span class="eyebrow">${t("detail_location")}</span>
+          <p>${ICONS.mapPin.replace("<svg ", '<svg style="width:14px;height:14px;vertical-align:-2px;margin-right:4px;color:'+cat.color+'" ')}${r.location}</p>
+        </div>
+        <div class="detail-item">
+          <span class="eyebrow">${t("detail_website")}</span>
+          <p><a href="${r.website}" target="_blank" rel="noopener" onclick="return openResourceLink(this.href)">${r.website.replace("https://www.","")}</a></p>
+        </div>
+      </div>
+      ${state.lang !== "en" ? `<p class="detail-lang-note">${t("detail_lang_note")}</p>` : ""}
+      <div class="detail-footer">
+        ${r.appointmentLink ? `<a href="${r.appointmentLink}" target="_blank" rel="noopener" onclick="return openResourceLink(this.href)" class="btn-primary">${ICONS.calendar} ${t("btn_appointment")}</a>` : ""}
+        <button class="btn-secondary" id="allBtn">${t("btn_see_all")}</button>
+      </div>
+    </div>
+  `;
+  el.querySelector("#backBtn").addEventListener("click", ()=>go("results"));
+  el.querySelector("#allBtn").addEventListener("click", ()=>go("results", { filterCategory:"All", search:"" }));
+  return el;
+}
+
+/* ============ Utils ============ */
+function schoolBadge(r){
+  if(r.school === "All") return `<span class="school-badge citywide">${t("badge_citywide_full")}</span>`;
+  const verified = SCHOOLS_WITH_DATA.has(r.school);
+  const label = r.school === "General" ? t("tag_general") : r.school;
+  return `<span class="school-badge ${verified ? "verified" : ""}">${verified ? "&#10003; " : ""}${escapeHtml(label)}</span>`;
+}
+function openResourceLink(url){
+  try{
+    const win = window.open(url, "_blank", "noopener");
+    if(!win){
+      // Popup was blocked (common in sandboxed preview contexts) — fall
+      // back to navigating the current tab so the link still works.
+      window.location.href = url;
+    }
+  } catch(e){
+    window.location.href = url;
+  }
+  return false; // prevent the default anchor navigation either way
+}
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, s=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[s]));
+}
+
+render();
+</script>
+</body>
+</html>
